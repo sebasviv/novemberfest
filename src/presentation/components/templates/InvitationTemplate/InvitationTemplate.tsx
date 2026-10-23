@@ -11,9 +11,11 @@ import type {
   MenuSection,
   NavSection,
   Plan,
+  SpecialInvitationResult,
   Venue,
 } from '@domain/entities';
 import { HeroInvitation } from '@presentation/components/organisms/HeroInvitation';
+import { SpecialInvitation } from '@presentation/components/organisms/SpecialInvitation';
 import { PlanGrid } from '@presentation/components/organisms/PlanGrid';
 import { VillaGallery } from '@presentation/components/organisms/VillaGallery';
 import { SummerMood } from '@presentation/components/organisms/SummerMood';
@@ -29,6 +31,7 @@ import styles from './InvitationTemplate.module.scss';
 
 export interface InvitationTemplateProps {
   event: Event;
+  specialInvitation: SpecialInvitationResult | null; // null → no se muestra
   plan: Plan;
   venue: Venue;
   summerMood: SummerMoodData;
@@ -44,6 +47,7 @@ export interface InvitationTemplateProps {
 
 export function InvitationTemplate({
   event,
+  specialInvitation,
   plan,
   venue,
   summerMood,
@@ -62,6 +66,12 @@ export function InvitationTemplate({
       <HeroInvitation event={event} confirmSectionId={closing.sectionId} />
       <main>
         <Divider color="sand" />
+        {specialInvitation && (
+          <>
+            <SpecialInvitation invitation={specialInvitation} />
+            <Divider color="white" flip />
+          </>
+        )}
         <PlanGrid plan={plan} />
         <Divider color="white" flip />
         <VillaGallery venue={venue} />

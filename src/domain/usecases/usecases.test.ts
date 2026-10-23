@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { InvitationRepositoryImpl } from '@data/repositories/InvitationRepositoryImpl';
 import { GetCostSummary } from '@domain/usecases/GetCostSummary';
 import { GetMarketLists } from '@domain/usecases/GetMarketLists';
+import { GetSpecialInvitation } from '@domain/usecases/GetSpecialInvitation';
 
 const repo = new InvitationRepositoryImpl();
 
@@ -33,5 +34,23 @@ describe('GetMarketLists', () => {
     expect(totals.reserve).toBe(42_200);
     expect(totals.total).toBe(464_200);
     expect(totals.perPerson).toBe(23_210);
+  });
+});
+
+describe('GetSpecialInvitation', () => {
+  it('sin nombre en la URL devuelve null (la sección no se muestra)', () => {
+    expect(new GetSpecialInvitation(repo).execute(null)).toBeNull();
+  });
+
+  it('nombre vacío o solo espacios también devuelve null', () => {
+    expect(new GetSpecialInvitation(repo).execute('   ')).toBeNull();
+  });
+
+  it('con nombre devuelve el contenido base + el nombre limpio', () => {
+    const result = new GetSpecialInvitation(repo).execute('  Ana María  ');
+    expect(result).not.toBeNull();
+    expect(result?.guestName).toBe('Ana María');
+    expect(result?.heading).toBe('INVITACIÓN');
+    expect(result?.headingAccent).toBe('ESPECIAL PARA');
   });
 });

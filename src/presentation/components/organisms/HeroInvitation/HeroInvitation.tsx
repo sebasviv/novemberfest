@@ -1,12 +1,11 @@
-// HeroInvitation — portada a pantalla completa: título cromado +
-// brush + script con corona, fechas, lugar, tags, textos flotantes,
-// cuenta regresiva y CTA. Parallax suave con transform (sin
-// background-attachment: fixed, incompatible con iOS).
+// HeroInvitation — portada a pantalla completa: título brush navy
+// + brush teal + script con corona, fechas, lugar, tags, textos
+// flotantes, cuenta regresiva y CTA. Parallax suave con transform
+// (sin background-attachment: fixed, incompatible con iOS).
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import type { Event } from '@domain/entities';
 import { useReducedMotion } from '@core/hooks/useReducedMotion';
-import { ChromeTitle } from '@presentation/components/atoms/ChromeTitle';
 import { BrushTitle } from '@presentation/components/atoms/BrushTitle';
 import { ScriptText } from '@presentation/components/atoms/ScriptText';
 import { Badge } from '@presentation/components/atoms/Badge';
@@ -65,7 +64,7 @@ export function HeroInvitation({ event, confirmSectionId }: HeroInvitationProps)
         </motion.div>
 
         <div className={styles.titleBlock}>
-          <ChromeTitle text={event.title} as="h1" size="xl" />
+          <BrushTitle text={event.title} as="h1" size="xl" color="navy" withUnderline={false} />
           <BrushTitle text={event.titleAccent} as="span" size="xl" withUnderline />
           <div className={styles.scriptRow}>
             <Sticker type="crown" size={44} animation="bounce" className={styles.crown} />

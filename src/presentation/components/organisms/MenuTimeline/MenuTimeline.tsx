@@ -6,6 +6,7 @@ import { AnimatePresence, motion, type PanInfo } from 'framer-motion';
 import type { MenuDay, MenuSection } from '@domain/entities';
 import { SectionHeader } from '@presentation/components/molecules/SectionHeader';
 import { MenuItemList } from '@presentation/components/molecules/MenuItemList';
+import { PolaroidImage } from '@presentation/components/atoms/PolaroidImage';
 import { ScriptText } from '@presentation/components/atoms/ScriptText';
 import { Icon } from '@presentation/components/atoms/Icon';
 import { useReducedMotion } from '@core/hooks/useReducedMotion';
@@ -49,6 +50,24 @@ export function MenuTimeline({ menu }: MenuTimelineProps) {
         tagline={menu.tagline}
       />
 
+      {/* Polaroids: carta del menú + foto real */}
+      {menu.gallery && menu.gallery.length > 0 && (
+        <ul className={styles.gallery}>
+          {menu.gallery.map((photo) => (
+            <li key={photo.caption}>
+              <PolaroidImage
+                src={photo.src}
+                alt={photo.alt}
+                caption={photo.caption}
+                rotation={photo.rotation}
+                width={540}
+                height={675}
+              />
+            </li>
+          ))}
+        </ul>
+      )}
+
       {/* Tabs sticky */}
       <div className={styles.tabsBar} role="tablist" aria-label="Días del fin de semana">
         {menu.days.map((day, index) => (
@@ -91,7 +110,7 @@ export function MenuTimeline({ menu }: MenuTimelineProps) {
             transition={{ duration: 0.3, ease: 'easeOut' }}
           >
             {activeDay.meals.map((meal) => (
-              <MenuItemList key={meal.title} title={meal.title} items={meal.items} />
+              <MenuItemList key={meal.title} title={meal.title} items={meal.items} photo={meal.photo} />
             ))}
           </motion.div>
         </AnimatePresence>

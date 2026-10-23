@@ -3,6 +3,7 @@
 import { createContext, useContext, useMemo, type ReactNode } from 'react';
 import { InvitationRepositoryImpl } from '@data/repositories/InvitationRepositoryImpl';
 import { GetEventInfo } from '@domain/usecases/GetEventInfo';
+import { GetSpecialInvitation } from '@domain/usecases/GetSpecialInvitation';
 import { GetPlan } from '@domain/usecases/GetPlan';
 import { GetMenu } from '@domain/usecases/GetMenu';
 import { GetCostSummary } from '@domain/usecases/GetCostSummary';
@@ -11,6 +12,7 @@ import { GetNavSections, GetObservations, GetSummerMood, GetVenue } from '@domai
 
 export interface Dependencies {
   getEventInfo: GetEventInfo;
+  getSpecialInvitation: GetSpecialInvitation;
   getPlan: GetPlan;
   getMenu: GetMenu;
   getCostSummary: GetCostSummary;
@@ -28,6 +30,7 @@ export function DependencyProvider({ children }: { children: ReactNode }) {
     const repo = new InvitationRepositoryImpl();
     return {
       getEventInfo: new GetEventInfo(repo),
+      getSpecialInvitation: new GetSpecialInvitation(repo),
       getPlan: new GetPlan(repo),
       getMenu: new GetMenu(repo),
       getCostSummary: new GetCostSummary(repo),

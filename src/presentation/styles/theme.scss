@@ -17,9 +17,7 @@ $color-teal: #1b6e8a; // Pinceladas, cabeceras, títulos brush
 $color-aqua-soft: #cfe6ee; // Fondos de etiquetas, filas destacadas
 $color-gold: #f2b544; // Resaltes de precio, "Viernes", totales
 $color-coral: #e8553e; // "Domingo", acentos puntuales
-$color-silver-1: #f5f7fa; // Gradiente cromado (alto)
-$color-silver-2: #b8bec7; // Gradiente cromado (medio)
-$color-silver-3: #6e7681; // Gradiente cromado (bajo)
+$color-silver-2: #b8bec7; // Cinta adhesiva plateada (TapeStrip)
 $color-sky: #8cc8ee; // Cielo del hero
 $color-white: #ffffff;
 $color-whatsapp: #25d366;
@@ -69,15 +67,13 @@ $ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
 $ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
 // ---------- Tipografía ----------
-$font-chrome: 'Playfair Display', 'Georgia', serif;
+$font-serif: 'Playfair Display', 'Georgia', serif; // Dígitos del countdown, números de observaciones
 $font-brush: 'Caveat Brush', 'Comic Sans MS', cursive;
 $font-script: 'Yellowtail', 'Snell Roundhand', cursive;
 $font-hand: 'Caveat', 'Segoe Script', cursive;
 $font-body: 'Cormorant Garamond', 'Georgia', serif;
 
 // Escala tipográfica fluida
-$fs-chrome-xl: clamp(2.6rem, 11vw, 5rem);
-$fs-chrome-lg: clamp(1.9rem, 7.5vw, 3.2rem);
 $fs-brush-xl: clamp(2.4rem, 10vw, 4.2rem);
 $fs-brush-lg: clamp(1.8rem, 7vw, 2.8rem);
 $fs-script-lg: clamp(1.7rem, 6.5vw, 2.6rem);
@@ -87,24 +83,6 @@ $fs-body: clamp(1.06rem, 1rem + 0.4vw, 1.2rem); // base >= 17px
 $fs-small: 0.95rem;
 
 // ---------- Mixins ----------
-
-// Texto cromado plateado con relieve (usar con filter drop-shadow)
-@mixin chrome-text {
-  background: linear-gradient(
-    180deg,
-    $color-silver-1 0%,
-    $color-silver-2 38%,
-    $color-silver-3 52%,
-    $color-silver-2 66%,
-    $color-silver-1 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  filter: drop-shadow(0 2px 0 rgba(20, 48, 94, 0.28))
-    drop-shadow(0 8px 16px rgba(20, 48, 94, 0.18));
-}
 
 // Borde inferior rasgado (fallback: borde recto si no hay clip-path)
 @mixin torn-paper {

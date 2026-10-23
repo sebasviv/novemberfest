@@ -1,5 +1,5 @@
-// AnimatedLogo — marca "November Fest" en SVG con trazo plateado
-// y brillo animado. Versión compacta para el StickyNav / footer.
+// AnimatedLogo — marca "November Fest" en SVG: serif navy +
+// brush teal. Versión compacta para el StickyNav / footer.
 import styles from './AnimatedLogo.module.scss';
 
 export interface AnimatedLogoProps {
@@ -17,14 +17,6 @@ export function AnimatedLogo({ size = 120, className = '' }: AnimatedLogoProps) 
       aria-label="November Fest"
       className={`${styles.logo} ${className}`.trim()}
     >
-      <defs>
-        <linearGradient id="nf-chrome" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#F5F7FA" />
-          <stop offset="0.45" stopColor="#B8BEC7" />
-          <stop offset="0.55" stopColor="#6E7681" />
-          <stop offset="1" stopColor="#F5F7FA" />
-        </linearGradient>
-      </defs>
       <text
         x="120"
         y="44"
@@ -32,7 +24,7 @@ export function AnimatedLogo({ size = 120, className = '' }: AnimatedLogoProps) 
         fontFamily="'Playfair Display', Georgia, serif"
         fontWeight="900"
         fontSize="40"
-        fill="url(#nf-chrome)"
+        fill="#14305E"
         letterSpacing="2"
       >
         NOVEMBER

@@ -14,6 +14,7 @@ import type {
   MenuSection,
   NavSection,
   Plan,
+  SpecialInvitation,
   Venue,
 } from '@domain/entities';
 
@@ -21,6 +22,15 @@ import type {
 const AIRBNB_URL =
   'https://www.airbnb.com.co/rooms/1329761087675818618?guests=1&adults=1&s=67&unique_share_id=0602a3fd-7508-4c2f-b0d7-3cd71208e1b6';
 const WHATSAPP_URL = 'https://chat.whatsapp.com/Bzi5DFgDZgHIGJ2Q1lgnal';
+
+// ---------- 6.0 Invitación especial ----------
+// Textos base de la sección personalizada; el nombre del invitado
+// NO va aquí: llega por query param en la URL (?para=Nombre).
+export const specialInvitation: SpecialInvitation = {
+  heading: 'INVITACIÓN',
+  headingAccent: 'ESPECIAL PARA',
+  tagline: 'Este finde no sería lo mismo sin ti',
+};
 
 // ---------- 6.1 Hero / Portada ----------
 export const event: Event = {
@@ -158,6 +168,10 @@ export const menu: MenuSection = {
         {
           title: 'Cena: Hamburguesa',
           items: ['Tomate', 'Lechuga', 'Carne de hamburguesa', 'Tocineta', 'Queso tajado', 'Pepino'],
+          photo: {
+            src: menuPhotos.hamburguesa,
+            alt: 'Hamburguesa con tocineta crujiente, queso fundido, tomate y lechuga',
+          },
         },
       ],
     },
@@ -166,7 +180,14 @@ export const menu: MenuSection = {
       label: 'Sábado 21',
       color: 'teal',
       meals: [
-        { title: 'Desayuno', items: desayunoItems },
+        {
+          title: 'Desayuno',
+          items: desayunoItems,
+          photo: {
+            src: menuPhotos.desayuno,
+            alt: 'Desayuno con huevos revueltos, sándwich de jamón y queso, granola y jugo de naranja',
+          },
+        },
         {
           title: 'Almuerzo',
           items: [
@@ -177,10 +198,18 @@ export const menu: MenuSection = {
             'Plátano frito o maduro',
             'Coca-Cola o limonada',
           ],
+          photo: {
+            src: menuPhotos.almuerzo,
+            alt: 'Pechuga a la plancha con arroz, ensalada fresca, papas a la francesa y plátano frito',
+          },
         },
         {
           title: 'Cena',
           items: ['Arroz con pollo colombiano', 'Coca-Cola o limonada', 'Papas a la francesa'],
+          photo: {
+            src: menuPhotos.arrozPollo,
+            alt: 'Arroz con pollo colombiano con papas a la francesa',
+          },
         },
       ],
     },
@@ -189,7 +218,14 @@ export const menu: MenuSection = {
       label: 'Domingo 22',
       color: 'coral',
       meals: [
-        { title: 'Desayuno', items: desayunoItems },
+        {
+          title: 'Desayuno',
+          items: desayunoItems,
+          photo: {
+            src: menuPhotos.desayuno,
+            alt: 'Desayuno con huevos revueltos, sándwich de jamón y queso, granola y jugo de naranja',
+          },
+        },
         {
           title: 'Almuerzo especial: Asado típico colombiano',
           items: [
@@ -201,11 +237,29 @@ export const menu: MenuSection = {
             'Ensalada',
             'Salsa chimichurri',
           ],
+          photo: {
+            src: menuPhotos.asadoTipico,
+            alt: 'Asado típico colombiano con carne a la parrilla, chorizo, costillas, arepa y chimichurri',
+          },
         },
       ],
     },
   ],
   phrases: ['Buena comida, mejores momentos', '¡A recargar energías para más historias!'],
+  gallery: [
+    {
+      src: menuPhotos.carta,
+      alt: 'Carta del menú del fin de semana colombiano',
+      caption: 'El menú del finde',
+      rotation: -3,
+    },
+    {
+      src: menuPhotos.asadoTipico,
+      alt: 'Asado colombiano en la parrilla',
+      caption: 'El asado del domingo',
+      rotation: 3,
+    },
+  ],
 };
 
 // ---------- 6.6 Cuentas claras ----------

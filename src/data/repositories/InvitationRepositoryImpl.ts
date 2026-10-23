@@ -9,6 +9,7 @@ import type {
   MenuSection,
   NavSection,
   Plan,
+  SpecialInvitation,
   Venue,
 } from '@domain/entities';
 import {
@@ -21,12 +22,16 @@ import {
   menu,
   navSections,
   plan,
+  specialInvitation,
   venue,
 } from '@data/datasources/invitation.data';
 
 export class InvitationRepositoryImpl implements InvitationRepository {
   getEventInfo(): Event {
     return event;
+  }
+  getSpecialInvitation(): SpecialInvitation {
+    return specialInvitation;
   }
   getPlan(): Plan {
     return plan;

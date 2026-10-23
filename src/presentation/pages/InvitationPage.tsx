@@ -4,6 +4,7 @@
 import { useMemo } from 'react';
 import { useDependencies } from '@presentation/providers/DependencyProvider';
 import { InvitationTemplate } from '@presentation/components/templates/InvitationTemplate';
+import { getQueryParam } from '@core/utils/getQueryParam';
 
 export function InvitationPage() {
   const deps = useDependencies();
@@ -14,6 +15,8 @@ export function InvitationPage() {
     const marketGrill = deps.getMarketLists.grill();
     return {
       event: deps.getEventInfo.execute(),
+      // Nombre del invitado vía URL (?para=Nombre); sin él → null y no se muestra
+      specialInvitation: deps.getSpecialInvitation.execute(getQueryParam('para')),
       plan: deps.getPlan.execute(),
       venue: deps.getVenue.execute(),
       summerMood: deps.getSummerMood.execute(),

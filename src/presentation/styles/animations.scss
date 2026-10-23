@@ -5,17 +5,6 @@
 // Todas animan solo transform/opacity para rendimiento móvil.
 // ============================================================
 
-// Brillo que cruza los títulos cromados (mueve background-position)
-@keyframes chrome-shine {
-  0% {
-    background-position: -200% center;
-  }
-  55%,
-  100% {
-    background-position: 200% center;
-  }
-}
-
 // Balanceo suave de palmeras / hojas (±3deg)
 @keyframes sway {
   0%,

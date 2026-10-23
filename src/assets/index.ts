@@ -5,11 +5,25 @@
 //   1. Copia el archivo a src/assets/images/ (webp + jpg fallback).
 //   2. Cambia aquí la referencia. Nada más.
 // ============================================================
-import { photoPlaceholder } from './images/placeholders';
 import heroSky from './images/hero-sky.svg';
 import paperTexture from './images/paper-texture.svg';
 import footerWater from './images/footer-water.svg';
-import portraitSebas from './images/portrait-sebas.svg';
+import fotoSebas from './images/foto_sebas.jpg';
+import laFinca from './images/la_finca.png';
+import laFinca2 from './images/la_finca_2.png';
+import piscinaJacuzzi from './images/piscina_y_jacuzzi.png';
+import terrazaSocial from './images/terraza_social.png';
+import vistaMontanas from './images/vista_a_las_montanas.png';
+import zonaChill from './images/zona_chill.png';
+import habitacionesComodas from './images/habitaciones_comodas.png';
+import atardecerInolvidable from './images/atardecer_inolvidable.png';
+import asadoParrilla from './images/asado.png';
+import cartaMenu from './images/menu_fin_de_semana.png';
+import foodBurger from './images/food_burger.jpg';
+import foodBreakfast from './images/food_breakfast.jpg';
+import foodLunchChicken from './images/food_lunch_chicken.jpg';
+import foodDinnerRice from './images/food_dinner_rice.jpg';
+import foodAsado from './images/food_asado.jpg';
 
 export { AirbnbLogo } from './logos/AirbnbLogo';
 
@@ -22,31 +36,33 @@ export const backgrounds = {
 
 // ---------- Fotos de la finca (polaroids) ----------
 export const villaPhotos = {
-  finca: photoPlaceholder({ title: 'La finca', colorA: '#8CC8EE', colorB: '#F4EBD9' }),
-  piscina: photoPlaceholder({ title: 'Piscina + jacuzzi', colorA: '#1B6E8A', colorB: '#CFE6EE' }),
-  terraza: photoPlaceholder({ title: 'Terraza social', colorA: '#E6D6B8', colorB: '#8CC8EE' }),
-  montanas: photoPlaceholder({ title: 'Vista a las montañas', colorA: '#3E6B4F', colorB: '#CFE6EE' }),
-  chill: photoPlaceholder({ title: 'Zona chill', colorA: '#F2B544', colorB: '#E8553E' }),
-  habitacion: photoPlaceholder({ title: 'Habitaciones', colorA: '#14305E', colorB: '#CFE6EE' }),
-  atardecer: photoPlaceholder({ title: 'Atardecer', colorA: '#E8553E', colorB: '#F2B544' }),
+  finca: laFinca,
+  piscina: piscinaJacuzzi,
+  terraza: terrazaSocial,
+  montanas: vistaMontanas,
+  chill: zonaChill,
+  habitacion: habitacionesComodas,
+  atardecer: atardecerInolvidable,
 };
 
 // ---------- Fotos del menú ----------
 export const menuPhotos = {
-  hamburguesa: photoPlaceholder({ title: 'Hamburguesa', colorA: '#F2B544', colorB: '#E6D6B8' }),
-  desayuno: photoPlaceholder({ title: 'Desayuno', colorA: '#CFE6EE', colorB: '#F4EBD9' }),
-  almuerzo: photoPlaceholder({ title: 'Almuerzo', colorA: '#1B6E8A', colorB: '#CFE6EE' }),
-  arrozPollo: photoPlaceholder({ title: 'Arroz con pollo', colorA: '#F2B544', colorB: '#1B6E8A' }),
-  asado: photoPlaceholder({ title: 'Asado', colorA: '#E8553E', colorB: '#F2B544' }),
+  carta: cartaMenu,
+  asado: asadoParrilla,
+  hamburguesa: foodBurger,
+  desayuno: foodBreakfast,
+  almuerzo: foodLunchChicken,
+  arrozPollo: foodDinnerRice,
+  asadoTipico: foodAsado,
 };
 
 // ---------- Polaroids del cierre ----------
 export const closingPhotos = {
   atardecer: villaPhotos.atardecer,
-  finca: villaPhotos.finca,
+  finca: laFinca2, // vista aérea de la finca
 };
 
-// ---------- Retrato del cumpleañero (reemplazable) ----------
+// ---------- Retrato del cumpleañero ----------
 export const portraits = {
-  sebas: portraitSebas,
+  sebas: fotoSebas,
 };

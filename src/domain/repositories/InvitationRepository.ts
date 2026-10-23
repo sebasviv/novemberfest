@@ -9,11 +9,13 @@ import type {
   MenuSection,
   NavSection,
   Plan,
+  SpecialInvitation,
   Venue,
 } from '@domain/entities';
 
 export interface InvitationRepository {
   getEventInfo(): Event;
+  getSpecialInvitation(): SpecialInvitation;
   getPlan(): Plan;
   getVenue(): Venue;
   getSummerMood(): SummerMoodData;

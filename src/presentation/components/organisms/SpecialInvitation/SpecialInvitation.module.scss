@@ -1,0 +1,62 @@
+@use 'theme' as *;
+
+.section {
+  position: relative;
+  padding: $space-12 $space-4;
+  background: linear-gradient(180deg, $color-white 0%, $color-aqua-soft 100%);
+  text-align: center;
+  overflow: hidden;
+  @include safe-area-padding;
+}
+
+.decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: $z-stickers;
+}
+
+.spark1 {
+  position: absolute;
+  top: 12%;
+  left: 10%;
+}
+
+.spark2 {
+  position: absolute;
+  top: 22%;
+  right: 12%;
+}
+
+.star {
+  position: absolute;
+  bottom: 14%;
+  right: 18%;
+  opacity: 0.9;
+}
+
+.card {
+  position: relative;
+  max-width: 420px;
+  margin: $space-6 auto 0;
+}
+
+.crown {
+  display: block;
+  margin: 0 auto $space-2;
+}
+
+.name {
+  margin: 0;
+  // El nombre es la estrella: un poco más grande que el script base
+  font-size: clamp(2.1rem, 9vw, 3.2rem);
+  line-height: 1.15;
+  overflow-wrap: break-word;
+}
+
+.tagline {
+  margin: $space-3 0 0;
+  font-family: $font-hand;
+  font-size: $fs-hand-lg;
+  color: $color-navy;
+}

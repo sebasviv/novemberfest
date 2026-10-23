@@ -1,6 +1,5 @@
-// SectionHeader — encabezado de sección: título cromado o brush +
-// script opcional. Combina ChromeTitle/BrushTitle/ScriptText.
-import { ChromeTitle } from '@presentation/components/atoms/ChromeTitle';
+// SectionHeader — encabezado de sección: título brush navy +
+// acento brush teal subrayado + script opcional.
 import { BrushTitle } from '@presentation/components/atoms/BrushTitle';
 import { ScriptText } from '@presentation/components/atoms/ScriptText';
 import styles from './SectionHeader.module.scss';
@@ -25,7 +24,7 @@ export function SectionHeader({
   return (
     <div className={`${styles.header} ${styles[align]} ${className}`.trim()} id={id}>
       <div className={styles.titleRow}>
-        <ChromeTitle text={heading} as="h2" />
+        <BrushTitle text={heading} as="h2" color="gold" withUnderline={false} />
         {headingAccent && <BrushTitle text={headingAccent} as="span" />}
       </div>
       {tagline && <ScriptText text={tagline} size="md" color="teal" />}

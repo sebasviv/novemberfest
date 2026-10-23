@@ -1,6 +1,19 @@
 // Entidades del dominio — sin React ni librerías externas.
 import type { IconKey } from '@core/types';
 
+// ---------- 6.0 Invitación especial ----------
+// Sección personalizada: solo se muestra si la URL trae ?para=Nombre
+export interface SpecialInvitation {
+  heading: string; // "INVITACIÓN"
+  headingAccent: string; // "ESPECIAL PARA"
+  tagline: string; // frase manuscrita bajo el nombre
+}
+
+// Resultado del use case: contenido base + nombre del invitado (URL)
+export interface SpecialInvitationResult extends SpecialInvitation {
+  guestName: string;
+}
+
 // ---------- 6.1 Hero / evento ----------
 export interface Event {
   title: string; // "NOVEMBER"
@@ -63,9 +76,15 @@ export interface SummerMoodData {
 }
 
 // ---------- 6.5 Menú ----------
+export interface MealPhoto {
+  src: string;
+  alt: string;
+}
+
 export interface Meal {
   title: string; // "Desayuno", "Cena: Hamburguesa"…
   items: string[];
+  photo?: MealPhoto; // foto del plato (opcional)
 }
 
 export type MenuDayColor = 'gold' | 'teal' | 'coral';
@@ -84,6 +103,7 @@ export interface MenuSection {
   tagline: string; // "Verano · Buena comida · Mejores amigos"
   days: MenuDay[];
   phrases: string[];
+  gallery?: VenuePhoto[]; // polaroids decorativas (carta del menú, foto real)
 }
 
 // ---------- 6.6 Cuentas claras ----------

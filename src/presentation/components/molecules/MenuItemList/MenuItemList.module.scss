@@ -17,8 +17,41 @@
 
 .list {
   display: flex;
+  flex: 1;
+  min-width: 0;
   flex-direction: column;
   gap: $space-1;
+}
+
+.body {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-4;
+}
+
+.photo {
+  flex-shrink: 0;
+  width: 140px;
+  margin: 0;
+  padding: 6px 6px 10px;
+  background: $color-white;
+  border-radius: $radius-sm;
+  box-shadow: $shadow-polaroid;
+  transform: rotate(2.5deg);
+
+  img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: calc($radius-sm / 2);
+  }
+}
+
+@media (max-width: $bp-md) {
+  .photo {
+    width: 108px;
+  }
 }
 
 .item {
