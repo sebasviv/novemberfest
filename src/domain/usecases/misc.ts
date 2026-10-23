@@ -1,5 +1,19 @@
-import type { ClosingSection, NavSection, SummerMoodData, Venue } from '@domain/entities';
+import type {
+  ClosingSection,
+  DrinksSurveySection,
+  NavSection,
+  SummerMoodData,
+  Venue,
+} from '@domain/entities';
 import type { InvitationRepository } from '@domain/repositories/InvitationRepository';
+
+export class GetDrinksSurvey {
+  constructor(private readonly repo: InvitationRepository) {}
+
+  execute(): DrinksSurveySection {
+    return this.repo.getDrinksSurvey();
+  }
+}
 
 export class GetVenue {
   constructor(private readonly repo: InvitationRepository) {}

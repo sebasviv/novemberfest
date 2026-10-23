@@ -8,6 +8,7 @@ import { villaPhotos, menuPhotos, closingPhotos, backgrounds } from '@assets/ind
 import type {
   ClosingSection,
   CostSummary,
+  DrinksSurveySection,
   Event,
   SummerMoodData,
   MarketList,
@@ -61,6 +62,7 @@ export const plan: Plan = {
     { icon: 'location', label: 'Lugar', value: 'La Mesa, Cundinamarca' },
     { icon: 'clock', label: 'Check-in', value: '12 del mediodía' },
     { icon: 'groups', label: 'Capacidad cotizada', value: '16 personas' },
+  
     {
       icon: 'personAdd',
       label: 'Persona extra',
@@ -278,19 +280,23 @@ export const costs: CostSummary = {
     { label: 'Asado', amount: 422_000 },
   ],
   totalLabel: 'Total base',
-  perPersonLabel: 'Aporte base por persona (16)',
+  perPersonLabel: 'Valor final por persona (16)',
   guests: 16,
   considerations: [
     'La finca fue cotizada para 16 personas.',
+    'El aporte de $310.547 es el valor final por persona: cubre la totalidad de la finca, la empleada de cocina, todos los mercados y el asado.',
     'Cada persona extra paga $80.000 por noche.',
     'El mercado normal y el asado fueron presupuestados para 20 personas.',
   ],
   notes: [
-    { icon: 'paid', text: 'Si falta dinero, los anfitriones pondrán el restante.' },
-    { icon: 'cocktail', text: 'Si sobra, se usará para licor y cerveza.' },
+    {
+      icon: 'paid',
+      text: 'El valor de $310.547 es el valor final definitivo: si llegara a faltar dinero, los anfitriones pondrán el restante.',
+    },
+    { icon: 'cocktail', text: 'Si sobra dinero, se usará para licor y cerveza.' },
     {
       icon: 'beer',
-      text: 'Cada persona debe traer 3 sixpack de cerveza o el licor de su preferencia.',
+      text: 'Aparte del valor final, cada persona debe traer 3 sixpack de cerveza o el licor de su preferencia.',
     },
     { icon: 'party', text: 'Si no bebes licor, trae algo que maree de tu preferencia.' },
   ],
@@ -302,7 +308,8 @@ export const marketNormal: MarketList = {
   sectionId: 'mercado',
   heading: 'Mercado normal',
   tagline: 'Presupuesto pensado para el finde',
-  intro: 'Presupuesto de mercado normal para 20 personas.',
+  intro:
+    'Presupuesto de mercado normal para 20 personas (ya incluido dentro del valor final de $310.547 por persona).',
   people: 20,
   reserveRate: 0.1,
   categories: [
@@ -413,7 +420,8 @@ export const marketGrill: MarketList = {
   sectionId: 'asado',
   heading: 'Mercado para asado colombiano',
   tagline: 'El sabor de la casa, a la parrilla',
-  intro: 'Presupuesto de mercado para el asado de 20 personas.',
+  intro:
+    'Presupuesto de mercado para el asado de 20 personas (ya incluido dentro del valor final de $310.547 por persona).',
   people: 20,
   reserveRate: 0.1,
   closingPhrase: 'Misma buena vibra, mejores asados',
@@ -476,6 +484,46 @@ export const marketGrill: MarketList = {
   ],
 };
 
+// ---------- 6.8.5 Encuesta de Bebidas ----------
+export const drinksSurvey: DrinksSurveySection = {
+  sectionId: 'bebidas',
+  heading: '¿QUÉ VAS A',
+  headingAccent: 'TRAER?',
+  tagline: 'Aporte personal de bebidas',
+  ruleText:
+    'Aparte del valor final, cada persona debe traer 3 sixpack de cerveza o el licor de su preferencia.',
+  helpText: 'Elige qué vas a llevar para que tengamos listo el inventario de la fiesta:',
+  options: [
+    {
+      id: 'beer',
+      label: 'Llevar 3 sixpack de cerveza',
+      description: 'Cerveza bien fría para piscina y todo el fin de semana.',
+      icon: 'beer',
+      defaultDetail: '3 six pack de cerveza',
+    },
+    {
+      id: 'liquor',
+      label: 'Algún licor de preferencia',
+      description: 'Whisky, tequila, ron, aguardiente o lo que prefieras brindar.',
+      icon: 'cocktail',
+      defaultDetail: 'algún licor de mi preferencia',
+      requiresCustomInput: true,
+      customPlaceholder: '¿Cuál licor? (ej. Tequila Don Julio, Whisky...)',
+    },
+    {
+      id: 'other',
+      label: 'Otra cosa',
+      description: 'Si no tomas licor, trae algo de tu preferencia para celebrar.',
+      icon: 'party',
+      defaultDetail: 'otra cosa para compartir',
+      requiresCustomInput: true,
+      customPlaceholder: '¿Qué vas a llevar? (ej. Bebidas sin alcohol, Red Bull...)',
+    },
+  ],
+  buttonLabel: 'Confirmar asistencia',
+  phrases: ['Sed de fin de semana', 'La nevera te espera'],
+};
+
 // ---------- 6.9 Observaciones + Confirmación ----------
 export const closing: ClosingSection = {
   sectionId: 'confirmar',
@@ -508,7 +556,7 @@ export const closing: ClosingSection = {
       title: 'Grupo de WhatsApp',
       url: WHATSAPP_URL,
       qrLabel: 'Escanea aquí',
-      buttonLabel: 'Únete al grupo y no te pierdas nada',
+      buttonLabel: 'Confirmar asistencia',
     },
     {
       id: 'airbnb',
@@ -518,7 +566,7 @@ export const closing: ClosingSection = {
       buttonLabel: 'Revisa la finca y enamórate más',
     },
   ],
-  footerText: 'Nos vemos para celebrar, pasarla brutal y vivir un November Fest de puro verano.',
+  footerText: 'Nos vemos para celebrar, pasarla brutal y vivir un November Fest como se debe!',
   polaroidCaptions: ['Atardeceres inolvidables', 'La casa de nuestra historia'],
 };
 

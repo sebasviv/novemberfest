@@ -3,6 +3,7 @@ import type { InvitationRepository } from '@domain/repositories/InvitationReposi
 import type {
   ClosingSection,
   CostSummary,
+  DrinksSurveySection,
   Event,
   SummerMoodData,
   MarketList,
@@ -15,6 +16,7 @@ import type {
 import {
   closing,
   costs,
+  drinksSurvey,
   event,
   summerMood,
   marketGrill,
@@ -53,6 +55,9 @@ export class InvitationRepositoryImpl implements InvitationRepository {
   }
   getMarketGrill(): MarketList {
     return marketGrill;
+  }
+  getDrinksSurvey(): DrinksSurveySection {
+    return drinksSurvey;
   }
   getClosing(): ClosingSection {
     return closing;

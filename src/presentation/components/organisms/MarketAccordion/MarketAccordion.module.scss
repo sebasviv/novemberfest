@@ -153,6 +153,21 @@
   padding-top: $space-2;
 }
 
+.includedNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  font-size: 0.95rem;
+  color: $color-teal;
+  margin-top: $space-3;
+  text-align: center;
+
+  strong {
+    color: $color-navy;
+  }
+}
+
 .closing {
   margin-top: $space-6;
   text-align: center;

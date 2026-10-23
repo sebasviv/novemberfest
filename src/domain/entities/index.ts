@@ -34,6 +34,7 @@ export interface PlanItem {
   label: string;
   value: string;
   note?: string; // nota manuscrita opcional (ej. acompañante extra)
+  highlight?: boolean; // destaca tarjeta (ej. valor por persona)
 }
 
 export interface Plan {
@@ -169,6 +170,31 @@ export interface MarketTotals {
   reserve: number;
   total: number;
   perPerson: number;
+}
+
+// ---------- 6.8.5 Encuesta de Bebidas ----------
+export type DrinkOptionId = 'beer' | 'liquor' | 'other';
+
+export interface DrinkOption {
+  id: DrinkOptionId;
+  label: string;
+  description: string;
+  icon: IconKey;
+  defaultDetail: string; // ej. "3 six pack de cerveza"
+  requiresCustomInput?: boolean;
+  customPlaceholder?: string;
+}
+
+export interface DrinksSurveySection {
+  sectionId: string;
+  heading: string; // "¿QUÉ VAS A"
+  headingAccent: string; // "TRAER?"
+  tagline: string;
+  ruleText: string; // "Aparte del valor final, cada persona debe traer 3 sixpack de cerveza o el licor de su preferencia."
+  helpText: string;
+  options: DrinkOption[];
+  buttonLabel: string;
+  phrases?: string[];
 }
 
 // ---------- 6.9 Observaciones + confirmación ----------

@@ -1,6 +1,7 @@
 @use 'theme' as *;
 
 .card {
+  position: relative;
   display: flex;
   align-items: flex-start;
   gap: $space-3;
@@ -8,6 +9,24 @@
   border-radius: $radius-md;
   padding: $space-4;
   box-shadow: $shadow-card;
+  transition: transform $dur-fast $ease-out, box-shadow $dur-fast $ease-out;
+}
+
+.highlight {
+  border: 2px solid $color-gold;
+  background: linear-gradient(135deg, rgba($color-gold, 0.09) 0%, $color-white 100%);
+  box-shadow: 0 4px 16px rgba(242, 181, 68, 0.22);
+
+  .iconWrap {
+    background: $color-gold;
+    color: $color-navy;
+  }
+
+  .value {
+    color: $color-navy;
+    font-size: 1.15em;
+    font-weight: 700;
+  }
 }
 
 .iconWrap {
@@ -25,6 +44,16 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-2;
+  flex-wrap: wrap;
 }
 
 .label {
@@ -32,6 +61,11 @@
   font-weight: 700;
   font-size: $fs-hand-lg;
   color: $color-teal;
+}
+
+.badge {
+  font-size: 0.82rem;
+  padding: 2px $space-2;
 }
 
 .value {

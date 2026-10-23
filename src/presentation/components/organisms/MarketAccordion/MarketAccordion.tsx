@@ -123,6 +123,19 @@ export function MarketAccordion({ list, totals }: MarketAccordionProps) {
         </div>
       </motion.dl>
 
+      <motion.p
+        className={styles.includedNote}
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+      >
+        <Icon name="check" size={16} />
+        <span>
+          Este presupuesto ya está <strong>incluido</strong> dentro del valor final de $310.547 por persona.
+        </span>
+      </motion.p>
+
       {list.closingPhrase && (
         <div className={styles.closing}>
           <ScriptText text={list.closingPhrase} color="teal" rotate={-2} />

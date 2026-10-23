@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use 'theme' as *;
 
 .row {
@@ -9,8 +10,26 @@
   border-bottom: 1px dashed rgba($color-navy, 0.25);
 }
 
+.labelGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  flex-wrap: wrap;
+}
+
 .label {
   font-weight: 600;
+}
+
+.finalTag {
+  font-family: $font-hand;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: $color-navy;
+  background: $color-gold;
+  padding: 1px $space-2;
+  border-radius: $radius-pill;
+  letter-spacing: 0.4px;
 }
 
 .amount {
@@ -32,5 +51,27 @@
   .amount {
     color: $color-navy;
     font-size: 1.6rem;
+  }
+}
+
+.final {
+  background: linear-gradient(135deg, rgba($color-gold, 0.18) 0%, rgba($color-gold, 0.35) 100%);
+  border: 2px solid $color-gold;
+  border-radius: $radius-md;
+  padding: $space-3 $space-4;
+  border-bottom: 0;
+  margin-top: $space-3;
+  box-shadow: 0 4px 14px rgba(242, 181, 68, 0.22);
+
+  .label {
+    color: $color-navy;
+    font-size: 1.1em;
+    font-weight: 700;
+  }
+
+  .amount {
+    color: color.adjust($color-teal, $lightness: -10%);
+    font-size: 1.85rem;
+    font-weight: 800;
   }
 }

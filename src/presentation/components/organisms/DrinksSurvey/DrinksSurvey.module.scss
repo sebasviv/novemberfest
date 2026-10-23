@@ -1,0 +1,301 @@
+@use 'sass:color';
+@use 'theme' as *;
+
+.section {
+  position: relative;
+  padding: $space-12 $space-4;
+  @include safe-area-padding;
+  overflow: hidden;
+}
+
+.decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: $z-stickers;
+}
+
+.cheers {
+  position: absolute;
+  top: $space-6;
+  right: $space-4;
+  opacity: 0.9;
+}
+
+.spark1 {
+  position: absolute;
+  top: 14%;
+  left: $space-4;
+}
+
+.spark2 {
+  position: absolute;
+  bottom: 12%;
+  right: $space-6;
+}
+
+.container {
+  max-width: 540px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+}
+
+// Tarjeta destacada con la regla
+.ruleCard {
+  position: relative;
+  background: $color-white;
+  border: 2px dashed rgba($color-coral, 0.45);
+  border-radius: $radius-lg;
+  padding: $space-6 $space-4 $space-4;
+  box-shadow: $shadow-card;
+  text-align: center;
+}
+
+.tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+}
+
+.ruleBadge {
+  display: inline-flex;
+  margin-bottom: $space-2;
+}
+
+.ruleText {
+  font-family: $font-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: $color-navy;
+  margin: $space-2 0;
+
+  mark {
+    background: rgba($color-gold, 0.35);
+    color: inherit;
+    padding: 0 4px;
+    border-radius: 4px;
+  }
+}
+
+.helpText {
+  font-size: 0.95rem;
+  color: rgba($color-navy, 0.75);
+  margin: 0;
+}
+
+// Identificación del invitado (solo lectura, desde query param)
+.guestBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($color-aqua-soft, 0.35);
+  border: 1px solid rgba($color-teal, 0.25);
+  border-radius: $radius-md;
+  padding: $space-2 $space-3;
+  font-size: 0.95rem;
+}
+
+.guestLabel {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  color: $color-navy;
+
+  strong {
+    font-family: $font-hand;
+    font-size: 1.35rem;
+    color: $color-coral;
+  }
+}
+
+.inputLabel {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: $color-teal;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.textInput {
+  width: 100%;
+  padding: $space-2 $space-3;
+  border: 1.5px solid rgba($color-navy, 0.2);
+  border-radius: $radius-sm;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: $color-navy;
+  background: $color-white;
+  transition: border-color $dur-fast $ease-out, box-shadow $dur-fast $ease-out;
+
+  &:focus {
+    outline: none;
+    border-color: $color-teal;
+    box-shadow: 0 0 0 3px rgba($color-teal, 0.15);
+  }
+}
+
+// Opciones de encuesta
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.optionCard {
+  @include tap-target;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: $space-3;
+  padding: $space-4;
+  background: $color-white;
+  border: 2px solid rgba($color-navy, 0.1);
+  border-radius: $radius-md;
+  cursor: pointer;
+  box-shadow: $shadow-card;
+  text-align: left;
+  transition: transform $dur-fast $ease-out, border-color $dur-fast $ease-out, box-shadow $dur-fast $ease-out, background $dur-fast $ease-out;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: rgba($color-teal, 0.4);
+    box-shadow: 0 6px 18px rgba(20, 48, 94, 0.12);
+  }
+
+  &.selected {
+    border-color: $color-teal;
+    background: linear-gradient(135deg, rgba($color-aqua-soft, 0.25) 0%, $color-white 100%);
+    box-shadow: 0 6px 20px rgba(27, 110, 138, 0.18);
+  }
+}
+
+.optionIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: $radius-md;
+  background: rgba($color-aqua-soft, 0.5);
+  color: $color-teal;
+  flex-shrink: 0;
+  transition: background $dur-fast $ease-out, color $dur-fast $ease-out;
+
+  .selected & {
+    background: $color-teal;
+    color: $color-white;
+  }
+}
+
+.optionInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.optionTitle {
+  font-family: $font-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: $color-navy;
+  margin: 0 0 2px;
+}
+
+.optionDesc {
+  font-size: 0.9rem;
+  line-height: 1.35;
+  color: rgba($color-navy, 0.7);
+  margin: 0;
+}
+
+.radioIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid rgba($color-navy, 0.25);
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: border-color $dur-fast $ease-out, background $dur-fast $ease-out;
+
+  .selected & {
+    border-color: $color-teal;
+    background: $color-teal;
+  }
+}
+
+.radioDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $color-white;
+}
+
+// Subinput condicional para licor u otra cosa
+.subDetailBox {
+  margin-top: $space-3;
+  padding-top: $space-3;
+  border-top: 1px dashed rgba($color-teal, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-1;
+}
+
+.chip {
+  background: rgba($color-teal, 0.08);
+  border: 1px solid rgba($color-teal, 0.2);
+  border-radius: $radius-pill;
+  padding: 3px 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: $color-teal;
+  cursor: pointer;
+  transition: background $dur-fast $ease-out, transform $dur-fast $ease-out;
+
+  &:hover {
+    background: rgba($color-teal, 0.16);
+    transform: scale(1.04);
+  }
+
+  &.chipActive {
+    background: $color-teal;
+    color: $color-white;
+    border-color: $color-teal;
+  }
+}
+
+// Nota de confirmación abajo
+.selectionNote {
+  background: rgba($color-aqua-soft, 0.4);
+  border: 1px dashed rgba($color-teal, 0.35);
+  border-radius: $radius-md;
+  padding: $space-3 $space-4;
+  text-align: center;
+
+  p {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: $color-navy;
+  }
+}
+
+.phrases {
+  display: flex;
+  justify-content: center;
+  gap: $space-6;
+  margin-top: $space-2;
+  flex-wrap: wrap;
+}
+

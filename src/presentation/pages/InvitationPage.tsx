@@ -11,12 +11,14 @@ export function InvitationPage() {
 
   // Los use cases son puros: se memoriza el resultado una sola vez
   const data = useMemo(() => {
+    const guestName = getQueryParam('para') || getQueryParam('nombre');
     const marketNormal = deps.getMarketLists.normal();
     const marketGrill = deps.getMarketLists.grill();
     return {
       event: deps.getEventInfo.execute(),
-      // Nombre del invitado vía URL (?para=Nombre); sin él → null y no se muestra
-      specialInvitation: deps.getSpecialInvitation.execute(getQueryParam('para')),
+      // Nombre del invitado vía URL (?para=Nombre o ?nombre=Nombre); sin él → null y no se muestra
+      guestName,
+      specialInvitation: deps.getSpecialInvitation.execute(guestName),
       plan: deps.getPlan.execute(),
       venue: deps.getVenue.execute(),
       summerMood: deps.getSummerMood.execute(),
@@ -26,6 +28,7 @@ export function InvitationPage() {
       marketNormalTotals: marketNormal.totals,
       marketGrill: marketGrill.list,
       marketGrillTotals: marketGrill.totals,
+      drinksSurvey: deps.getDrinksSurvey.execute(),
       closing: deps.getObservations.execute(),
       navSections: deps.getNavSections.execute(),
     };

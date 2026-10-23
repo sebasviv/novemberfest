@@ -10,10 +10,17 @@ export interface PriceRowProps {
   label: string;
   amount: number;
   emphasis?: boolean; // filas de total/aporte destacadas
+  isFinal?: boolean; // fila destacada como valor final
   className?: string;
 }
 
-export function PriceRow({ label, amount, emphasis = false, className = '' }: PriceRowProps) {
+export function PriceRow({
+  label,
+  amount,
+  emphasis = false,
+  isFinal = false,
+  className = '',
+}: PriceRowProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.6 });
   const reduced = useReducedMotion();
@@ -35,15 +42,27 @@ export function PriceRow({ label, amount, emphasis = false, className = '' }: Pr
     return () => controls.stop();
   }, [inView, amount, reduced]);
 
+  const rowClass = [
+    styles.row,
+    emphasis && styles.emphasis,
+    isFinal && styles.final,
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return (
     <motion.div
-      className={`${styles.row} ${emphasis ? styles.emphasis : ''} ${className}`.trim()}
+      className={rowClass}
       variants={{
         hidden: { opacity: 0, y: 14 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
       }}
     >
-      <span className={styles.label}>{label}</span>
+      <div className={styles.labelGroup}>
+        <span className={styles.label}>{label}</span>
+        {isFinal && <span className={styles.finalTag}>VALOR FINAL</span>}
+      </div>
       <span ref={ref} className={styles.amount}>
         {formatCurrency(0)}
       </span>

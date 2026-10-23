@@ -4,6 +4,9 @@ import { InvitationRepositoryImpl } from '@data/repositories/InvitationRepositor
 import { GetCostSummary } from '@domain/usecases/GetCostSummary';
 import { GetMarketLists } from '@domain/usecases/GetMarketLists';
 import { GetSpecialInvitation } from '@domain/usecases/GetSpecialInvitation';
+import { GetDrinksSurvey } from '@domain/usecases/misc';
+import { buildAttendanceMessage } from '@core/utils/buildAttendanceMessage';
+import { buildWhatsAppUrl } from '@core/utils/buildWhatsAppUrl';
 
 const repo = new InvitationRepositoryImpl();
 
@@ -52,5 +55,82 @@ describe('GetSpecialInvitation', () => {
     expect(result?.guestName).toBe('Ana María');
     expect(result?.heading).toBe('INVITACIÓN');
     expect(result?.headingAccent).toBe('ESPECIAL PARA');
+  });
+});
+
+describe('GetDrinksSurvey', () => {
+  it('contiene la regla de las bebidas y las 3 opciones requeridas', () => {
+    const survey = new GetDrinksSurvey(repo).execute();
+    expect(survey.sectionId).toBe('bebidas');
+    expect(survey.ruleText).toContain(
+      'Aparte del valor final, cada persona debe traer 3 sixpack de cerveza o el licor de su preferencia.'
+    );
+    expect(survey.options).toHaveLength(3);
+    const ids = survey.options.map((o) => o.id);
+    expect(ids).toEqual(['beer', 'liquor', 'other']);
+  });
+});
+
+describe('buildAttendanceMessage', () => {
+  it('genera exactamente el mensaje requerido: "Soy ana y voy a llevar 3 six pack de cerveza"', () => {
+    const msg = buildAttendanceMessage({
+      guestName: 'ana',
+      optionId: 'beer',
+    });
+    expect(msg).toBe('Soy ana y voy a llevar 3 six pack de cerveza');
+  });
+
+  it('soporta opción de licor con detalle personalizado', () => {
+    const msg = buildAttendanceMessage({
+      guestName: 'Carlos',
+      optionId: 'liquor',
+      customDetail: 'Tequila Don Julio',
+    });
+    expect(msg).toBe('Soy Carlos y voy a llevar Tequila Don Julio');
+  });
+
+  it('soporta opción de licor sin detalle personalizado', () => {
+    const msg = buildAttendanceMessage({
+      guestName: 'Laura',
+      optionId: 'liquor',
+    });
+    expect(msg).toBe('Soy Laura y voy a llevar algún licor de mi preferencia');
+  });
+
+  it('soporta opción de otra cosa', () => {
+    const msg = buildAttendanceMessage({
+      guestName: 'Pedro',
+      optionId: 'other',
+      customDetail: 'bebidas sin alcohol y Red Bull',
+    });
+    expect(msg).toBe('Soy Pedro y voy a llevar bebidas sin alcohol y Red Bull');
+  });
+
+  it('funciona cuando no hay nombre de invitado', () => {
+    const msg = buildAttendanceMessage({
+      guestName: null,
+      optionId: 'beer',
+    });
+    expect(msg).toBe('Hola, voy a llevar 3 six pack de cerveza');
+  });
+});
+
+describe('buildWhatsAppUrl', () => {
+  it('convierte enlaces de grupo en api.whatsapp.com/send cuando hay mensaje', () => {
+    const groupUrl = 'https://chat.whatsapp.com/Bzi5DFgDZgHIGJ2Q1lgnal';
+    const msg = 'Soy ana y voy a llevar 3 six pack de cerveza';
+    const result = buildWhatsAppUrl(groupUrl, msg);
+    expect(result).toBe(
+      `https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`
+    );
+  });
+
+  it('agrega el texto correctamente a urls directas', () => {
+    const waUrl = 'https://api.whatsapp.com/send';
+    const msg = 'Soy ana y voy a llevar 3 six pack de cerveza';
+    const result = buildWhatsAppUrl(waUrl, msg);
+    expect(result).toBe(
+      `https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`
+    );
   });
 });

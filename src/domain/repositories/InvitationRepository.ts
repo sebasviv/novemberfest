@@ -3,6 +3,7 @@
 import type {
   ClosingSection,
   CostSummary,
+  DrinksSurveySection,
   Event,
   SummerMoodData,
   MarketList,
@@ -23,6 +24,7 @@ export interface InvitationRepository {
   getCostSummary(): CostSummary;
   getMarketNormal(): MarketList;
   getMarketGrill(): MarketList;
+  getDrinksSurvey(): DrinksSurveySection;
   getClosing(): ClosingSection;
   getNavSections(): NavSection[];
 }

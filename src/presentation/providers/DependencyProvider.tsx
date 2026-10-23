@@ -8,7 +8,13 @@ import { GetPlan } from '@domain/usecases/GetPlan';
 import { GetMenu } from '@domain/usecases/GetMenu';
 import { GetCostSummary } from '@domain/usecases/GetCostSummary';
 import { GetMarketLists } from '@domain/usecases/GetMarketLists';
-import { GetNavSections, GetObservations, GetSummerMood, GetVenue } from '@domain/usecases/misc';
+import {
+  GetDrinksSurvey,
+  GetNavSections,
+  GetObservations,
+  GetSummerMood,
+  GetVenue,
+} from '@domain/usecases/misc';
 
 export interface Dependencies {
   getEventInfo: GetEventInfo;
@@ -18,6 +24,7 @@ export interface Dependencies {
   getCostSummary: GetCostSummary;
   getMarketLists: GetMarketLists;
   getSummerMood: GetSummerMood;
+  getDrinksSurvey: GetDrinksSurvey;
   getObservations: GetObservations;
   getVenue: GetVenue;
   getNavSections: GetNavSections;
@@ -36,6 +43,7 @@ export function DependencyProvider({ children }: { children: ReactNode }) {
       getCostSummary: new GetCostSummary(repo),
       getMarketLists: new GetMarketLists(repo),
       getSummerMood: new GetSummerMood(repo),
+      getDrinksSurvey: new GetDrinksSurvey(repo),
       getObservations: new GetObservations(repo),
       getVenue: new GetVenue(repo),
       getNavSections: new GetNavSections(repo),

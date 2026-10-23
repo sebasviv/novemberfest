@@ -1,9 +1,11 @@
 // CostTable — "CUENTAS CLARAS": tabla semántica con filas en
-// cascada y precios con count-up + notas y frases.
+// cascada y precios con count-up + tarjeta destacada de valor final + notas y frases.
 // Los totales llegan ya calculados por props (use case).
-import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+import { animate, motion, useInView } from 'framer-motion';
 import type { CostSummary, CostSummaryResult } from '@domain/entities';
 import { formatCurrency } from '@core/utils/formatCurrency';
+import { useReducedMotion } from '@core/hooks/useReducedMotion';
 import { SectionHeader } from '@presentation/components/molecules/SectionHeader';
 import { ScriptText } from '@presentation/components/atoms/ScriptText';
 import { BulletItem } from '@presentation/components/molecules/BulletItem';
@@ -16,6 +18,27 @@ export interface CostTableProps {
 }
 
 export function CostTable({ summary }: CostTableProps) {
+  const showcaseRef = useRef<HTMLSpanElement>(null);
+  const inView = useInView(showcaseRef, { once: true, amount: 0.5 });
+  const reduced = useReducedMotion();
+
+  useEffect(() => {
+    const node = showcaseRef.current;
+    if (!node || !inView) return;
+    if (reduced) {
+      node.textContent = formatCurrency(summary.perPerson);
+      return;
+    }
+    const controls = animate(0, summary.perPerson, {
+      duration: 1.1,
+      ease: 'easeOut',
+      onUpdate: (v) => {
+        node.textContent = formatCurrency(v);
+      },
+    });
+    return () => controls.stop();
+  }, [inView, summary.perPerson, reduced]);
+
   return (
     <section
       id={summary.sectionId}
@@ -65,7 +88,7 @@ export function CostTable({ summary }: CostTableProps) {
               <th scope="row">{summary.totalLabel}</th>
               <td>{formatCurrency(summary.total)}</td>
             </tr>
-            <tr className={styles.totalRow}>
+            <tr className={`${styles.totalRow} ${styles.finalRow}`}>
               <th scope="row">{summary.perPersonLabel}</th>
               <td>{formatCurrency(summary.perPerson)}</td>
             </tr>
@@ -78,7 +101,7 @@ export function CostTable({ summary }: CostTableProps) {
             <PriceRow key={item.label} label={item.label} amount={item.amount} />
           ))}
           <PriceRow label={summary.totalLabel} amount={summary.total} emphasis />
-          <PriceRow label={summary.perPersonLabel} amount={summary.perPerson} emphasis />
+          <PriceRow label={summary.perPersonLabel} amount={summary.perPerson} isFinal />
         </div>
       </motion.div>
 

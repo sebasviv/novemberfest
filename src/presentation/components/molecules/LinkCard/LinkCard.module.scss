@@ -9,6 +9,7 @@
   border-radius: $radius-lg;
   padding: $space-6 $space-4;
   box-shadow: $shadow-polaroid;
+  width: 100%;
 }
 
 .title {
@@ -19,4 +20,70 @@
   font-weight: 700;
   font-size: 1.6rem;
   color: $color-navy;
+}
+
+// Vista previa de WhatsApp debajo del botón "Únete al grupo y no te pierdas nada"
+.previewBox {
+  width: 100%;
+  background: #f0f2f5;
+  border-radius: $radius-md;
+  padding: $space-3;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px rgba(20, 48, 94, 0.06);
+  text-align: left;
+  margin-top: $space-1;
+}
+
+.previewHeader {
+  display: flex;
+  align-items: center;
+  gap: $space-1;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba($color-navy, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: $space-2;
+}
+
+.previewBubble {
+  position: relative;
+  background: #dcf8c6; // Color verde clásico burbuja WhatsApp
+  border-radius: 10px 0 10px 10px;
+  padding: $space-2 $space-3;
+  margin-left: auto;
+  max-width: 95%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -7px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid #dcf8c6;
+    border-right: 7px solid transparent;
+  }
+}
+
+.previewText {
+  margin: 0;
+  font-family: inherit;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  color: #111b21;
+  word-break: break-word;
+
+  strong {
+    color: #0b141a;
+  }
+}
+
+.previewTime {
+  display: block;
+  text-align: right;
+  font-size: 0.7rem;
+  color: rgba(17, 27, 33, 0.55);
+  margin-top: 2px;
 }

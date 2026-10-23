@@ -5,12 +5,13 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import type { ClosingSection } from '@domain/entities';
 import { closingPhotos } from '@assets/index';
+import { formatCurrency } from '@core/utils/formatCurrency';
 import { useReducedMotion } from '@core/hooks/useReducedMotion';
 import { SectionHeader } from '@presentation/components/molecules/SectionHeader';
 import { LinkCard } from '@presentation/components/molecules/LinkCard';
 import { ObservationsList } from '../ObservationsList';
 import { ScriptText } from '@presentation/components/atoms/ScriptText';
-import { Button } from '@presentation/components/atoms/Button';
+import { Badge } from '@presentation/components/atoms/Badge';
 import { PolaroidImage } from '@presentation/components/atoms/PolaroidImage';
 import { Sticker } from '@presentation/components/atoms/Sticker';
 import { fadeUp, staggerContainer, viewportOnce } from '@presentation/animations/variants';
@@ -18,11 +19,19 @@ import styles from './ConfirmationLinks.module.scss';
 
 export interface ConfirmationLinksProps {
   closing: ClosingSection;
+  finalPrice?: number;
+  confirmUrl?: string;
+  confirmMessage?: string;
 }
 
 const CONFETTI_COLORS = ['#F2B544', '#E8553E', '#1B6E8A', '#CFE6EE', '#F5F7FA'];
 
-export function ConfirmationLinks({ closing }: ConfirmationLinksProps) {
+export function ConfirmationLinks({
+  closing,
+  finalPrice,
+  confirmUrl,
+  confirmMessage,
+}: ConfirmationLinksProps) {
   const [confettiBurst, setConfettiBurst] = useState(0);
   const reduced = useReducedMotion();
   const whatsapp = closing.links.find((l) => l.id === 'whatsapp');
@@ -65,7 +74,15 @@ export function ConfirmationLinks({ closing }: ConfirmationLinksProps) {
         viewport={viewportOnce}
       >
         {closing.links.map((link) => (
-          <LinkCard key={link.id} link={link} />
+          <LinkCard
+            key={link.id}
+            link={link}
+            customUrl={link.id === 'whatsapp' ? confirmUrl : undefined}
+            previewMessage={link.id === 'whatsapp' ? confirmMessage : undefined}
+            onButtonClick={
+              link.id === 'whatsapp' ? () => setConfettiBurst((n) => n + 1) : undefined
+            }
+          />
         ))}
       </motion.div>
 
@@ -77,15 +94,18 @@ export function ConfirmationLinks({ closing }: ConfirmationLinksProps) {
           whileInView="visible"
           viewport={viewportOnce}
         >
-          <Button
-            href={whatsapp.url}
-            variant="whatsapp"
-            fullWidth
-            ariaLabel="Confirmar asistencia en el grupo de WhatsApp"
-            onClick={() => setConfettiBurst((n) => n + 1)}
-          >
-            Confirmar asistencia
-          </Button>
+          <div className={styles.finalCallout}>
+            <div className={styles.calloutHeader}>
+              <Badge text="VALOR FINAL" color="gold" />
+              <span className={styles.calloutAmount}>
+                {formatCurrency(finalPrice ?? 310_547)}
+                <small className={styles.perPerson}> / persona</small>
+              </span>
+            </div>
+            <p className={styles.calloutText}>
+              Cubre la finca completa, cocina, todos los mercados y el asado.
+            </p>
+          </div>
 
           {/* Confeti ligero con CSS (sin librerías); no se renderiza con reduced-motion */}
           {!reduced && confettiBurst > 0 && (
