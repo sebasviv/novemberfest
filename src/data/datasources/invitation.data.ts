@@ -280,7 +280,7 @@ export const costs: CostSummary = {
     { label: 'Asado', amount: 422_000 },
   ],
   totalLabel: 'Total base',
-  perPersonLabel: 'Valor final por persona (16)',
+  perPersonLabel: 'Valor final por persona',
   guests: 16,
   considerations: [
     'La finca fue cotizada para 16 personas.',
