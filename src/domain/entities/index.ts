@@ -50,10 +50,10 @@ export interface Venue {
   photos: VenuePhoto[];
 }
 
-// ---------- 6.4 Ibiza all weekend ----------
-export interface IbizaMoodData {
+// ---------- 6.4 Summer mood ----------
+export interface SummerMoodData {
   sectionId: string;
-  heading: string; // "IBIZA"
+  heading: string; // "SUMMER"
   headingAccent: string; // "all weekend"
   subtitle: string;
   mood: string[];
@@ -81,7 +81,7 @@ export interface MenuSection {
   sectionId: string;
   heading: string; // "MENÚ"
   headingAccent: string; // "del finde"
-  tagline: string; // "Ibiza vibes · Buena comida · Mejores amigos"
+  tagline: string; // "Verano · Buena comida · Mejores amigos"
   days: MenuDay[];
   phrases: string[];
 }

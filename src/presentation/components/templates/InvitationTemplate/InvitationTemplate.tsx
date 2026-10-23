@@ -5,7 +5,7 @@ import type {
   CostSummary,
   CostSummaryResult,
   Event,
-  IbizaMoodData,
+  SummerMoodData,
   MarketList,
   MarketTotals,
   MenuSection,
@@ -16,7 +16,7 @@ import type {
 import { HeroInvitation } from '@presentation/components/organisms/HeroInvitation';
 import { PlanGrid } from '@presentation/components/organisms/PlanGrid';
 import { VillaGallery } from '@presentation/components/organisms/VillaGallery';
-import { IbizaMood } from '@presentation/components/organisms/IbizaMood';
+import { SummerMood } from '@presentation/components/organisms/SummerMood';
 import { MenuTimeline } from '@presentation/components/organisms/MenuTimeline';
 import { CostTable } from '@presentation/components/organisms/CostTable';
 import { MarketAccordion } from '@presentation/components/organisms/MarketAccordion';
@@ -31,7 +31,7 @@ export interface InvitationTemplateProps {
   event: Event;
   plan: Plan;
   venue: Venue;
-  ibiza: IbizaMoodData;
+  summerMood: SummerMoodData;
   menu: MenuSection;
   costs: CostSummary & CostSummaryResult;
   marketNormal: MarketList;
@@ -46,7 +46,7 @@ export function InvitationTemplate({
   event,
   plan,
   venue,
-  ibiza,
+  summerMood,
   menu,
   costs,
   marketNormal,
@@ -66,7 +66,7 @@ export function InvitationTemplate({
         <Divider color="white" flip />
         <VillaGallery venue={venue} />
         <Divider color="teal" />
-        <IbizaMood data={ibiza} />
+        <SummerMood data={summerMood} />
         <Divider color="sand" flip />
         <MenuTimeline menu={menu} />
         <Divider color="white" />

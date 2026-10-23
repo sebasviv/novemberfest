@@ -1,4 +1,4 @@
-import type { ClosingSection, IbizaMoodData, NavSection, Venue } from '@domain/entities';
+import type { ClosingSection, NavSection, SummerMoodData, Venue } from '@domain/entities';
 import type { InvitationRepository } from '@domain/repositories/InvitationRepository';
 
 export class GetVenue {
@@ -9,11 +9,11 @@ export class GetVenue {
   }
 }
 
-export class GetIbizaMood {
+export class GetSummerMood {
   constructor(private readonly repo: InvitationRepository) {}
 
-  execute(): IbizaMoodData {
-    return this.repo.getIbizaMood();
+  execute(): SummerMoodData {
+    return this.repo.getSummerMood();
   }
 }
 

@@ -4,7 +4,7 @@ import type {
   ClosingSection,
   CostSummary,
   Event,
-  IbizaMoodData,
+  SummerMoodData,
   MarketList,
   MenuSection,
   NavSection,
@@ -16,7 +16,7 @@ export interface InvitationRepository {
   getEventInfo(): Event;
   getPlan(): Plan;
   getVenue(): Venue;
-  getIbizaMood(): IbizaMoodData;
+  getSummerMood(): SummerMoodData;
   getMenu(): MenuSection;
   getCostSummary(): CostSummary;
   getMarketNormal(): MarketList;

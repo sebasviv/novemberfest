@@ -9,7 +9,7 @@ import type {
   ClosingSection,
   CostSummary,
   Event,
-  IbizaMoodData,
+  SummerMoodData,
   MarketList,
   MenuSection,
   NavSection,
@@ -31,8 +31,8 @@ export const event: Event = {
   // 20/11/2026 12:00 hora Colombia (UTC-5, America/Bogota)
   targetDateIso: '2026-11-20T12:00:00-05:00',
   location: 'La Mesa, Cundinamarca',
-  tags: ['Ibiza vibes', 'Afrohouse', 'Verano', 'Villa getaway con amigos'],
-  floatingTexts: ['Ibiza Vibes Afrohouse Verano', 'Villa Getaway con amigos'],
+  tags: ['Sol y piscina', 'Afrohouse', 'Verano', 'Finde con amigos'],
+  floatingTexts: ['Sol Piscina Buena Música', 'Un finde para desconectar'],
   ctaLabel: 'Confirmar asistencia',
   startedLabel: '¡Ya empezó!',
 };
@@ -81,7 +81,7 @@ export const venue: Venue = {
   headingAccent: 'LA FINCA',
   texts: [
     'Finca para disfrutar el finde con amigos',
-    'El escenario perfecto para un cumpleaños con vibes de verano en La Mesa.',
+    'El escenario perfecto para un cumpleaños con toda la vibra de verano en La Mesa.',
   ],
   photos: [
     { src: villaPhotos.finca, alt: 'Vista general de la finca', caption: 'La finca', rotation: -4 },
@@ -118,20 +118,20 @@ export const venue: Venue = {
   ],
 };
 
-// ---------- 6.4 Ibiza all weekend ----------
-export const ibiza: IbizaMoodData = {
-  sectionId: 'ibiza',
-  heading: 'IBIZA',
+// ---------- 6.4 Summer mood ----------
+export const summerMood: SummerMoodData = {
+  sectionId: 'summer',
+  heading: 'SUMMER',
   headingAccent: 'all weekend',
-  subtitle: 'Más verano, más plata, más afrohouse',
+  subtitle: 'Sol, piscina y buena música todo el finde',
   mood: [
     'Blanco, beige, azul y toques plateados',
     'Lino, gafas, swimwear y look de verano',
-    'Piscina, sunset y parche entre amigos',
+    'Piscina, atardecer y parche entre amigos',
   ],
   music: ['Techno', 'Afrohouse', 'Melodic', 'Hard', 'Reggaeton', 'Latino', 'Afrobeats'],
   included: ['Sonido y luces de alta calidad', 'DJs invitados', 'Personal de cocina'],
-  closingText: 'La idea es vivir un finde tipo Ibiza: sol, piscina, buena energía y baile.',
+  closingText: 'La idea es vivir un finde de puro verano: sol, piscina, relax y baile.',
 };
 
 // ---------- 6.5 Menú del finde ----------
@@ -148,7 +148,7 @@ export const menu: MenuSection = {
   sectionId: 'menu',
   heading: 'MENÚ',
   headingAccent: 'del finde',
-  tagline: 'Ibiza vibes · Buena comida · Mejores amigos',
+  tagline: 'Verano · Buena comida · Mejores amigos',
   days: [
     {
       id: 'viernes',
@@ -358,7 +358,7 @@ export const marketNormal: MarketList = {
 export const marketGrill: MarketList = {
   sectionId: 'asado',
   heading: 'Mercado para asado colombiano',
-  tagline: 'Sabor colombiano en Ibiza',
+  tagline: 'El sabor de la casa, a la parrilla',
   intro: 'Presupuesto de mercado para el asado de 20 personas.',
   people: 20,
   reserveRate: 0.1,
@@ -464,7 +464,7 @@ export const closing: ClosingSection = {
       buttonLabel: 'Revisa la finca y enamórate más',
     },
   ],
-  footerText: 'Nos vemos para celebrar, pasarla brutal y vivir un November Fest muy Ibiza.',
+  footerText: 'Nos vemos para celebrar, pasarla brutal y vivir un November Fest de puro verano.',
   polaroidCaptions: ['Atardeceres inolvidables', 'La casa de nuestra historia'],
 };
 

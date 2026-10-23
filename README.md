@@ -1,6 +1,6 @@
 # November Fest 2026 · Cumple de Sebas — Invitación digital
 
-Landing page de invitación estilo scrapbook/collage veraniego (Ibiza vibes), mobile-first, construida con **React 18 + TypeScript (strict) + Vite + SCSS modules + Framer Motion**, con **Clean Architecture** y **Atomic Design**.
+Landing page de invitación estilo scrapbook/collage veraniego (sol, piscina y relax), mobile-first, construida con **React 18 + TypeScript (strict) + Vite + SCSS modules + Framer Motion**, con **Clean Architecture** y **Atomic Design**.
 
 ## Correr el proyecto
 

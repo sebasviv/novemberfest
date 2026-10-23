@@ -41,6 +41,13 @@
   opacity: 0.85;
 }
 
+.sun {
+  position: absolute;
+  bottom: 18%;
+  left: $space-6;
+  opacity: 0.9;
+}
+
 .columns {
   display: flex;
   flex-direction: column;

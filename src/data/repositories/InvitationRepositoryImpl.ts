@@ -4,7 +4,7 @@ import type {
   ClosingSection,
   CostSummary,
   Event,
-  IbizaMoodData,
+  SummerMoodData,
   MarketList,
   MenuSection,
   NavSection,
@@ -15,7 +15,7 @@ import {
   closing,
   costs,
   event,
-  ibiza,
+  summerMood,
   marketGrill,
   marketNormal,
   menu,
@@ -34,8 +34,8 @@ export class InvitationRepositoryImpl implements InvitationRepository {
   getVenue(): Venue {
     return venue;
   }
-  getIbizaMood(): IbizaMoodData {
-    return ibiza;
+  getSummerMood(): SummerMoodData {
+    return summerMood;
   }
   getMenu(): MenuSection {
     return menu;

@@ -16,7 +16,7 @@ export function InvitationPage() {
       event: deps.getEventInfo.execute(),
       plan: deps.getPlan.execute(),
       venue: deps.getVenue.execute(),
-      ibiza: deps.getIbizaMood.execute(),
+      summerMood: deps.getSummerMood.execute(),
       menu: deps.getMenu.execute(),
       costs: deps.getCostSummary.execute(),
       marketNormal: marketNormal.list,

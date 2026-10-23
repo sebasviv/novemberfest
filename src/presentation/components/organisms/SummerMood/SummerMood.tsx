@@ -1,20 +1,20 @@
-// IbizaMood — "IBIZA all weekend": mood, chips de música con
+// SummerMood — "SUMMER all weekend": mood, chips de música con
 // ecualizador animado, "tendremos" y frase de cierre.
 import { motion } from 'framer-motion';
-import type { IbizaMoodData } from '@domain/entities';
+import type { SummerMoodData } from '@domain/entities';
 import { SectionHeader } from '@presentation/components/molecules/SectionHeader';
 import { ScriptText } from '@presentation/components/atoms/ScriptText';
 import { Chip } from '@presentation/components/atoms/Chip';
 import { Sticker } from '@presentation/components/atoms/Sticker';
 import { BulletItem } from '@presentation/components/molecules/BulletItem';
 import { fadeUp, staggerContainer, viewportOnce } from '@presentation/animations/variants';
-import styles from './IbizaMood.module.scss';
+import styles from './SummerMood.module.scss';
 
-export interface IbizaMoodProps {
-  data: IbizaMoodData;
+export interface SummerMoodProps {
+  data: SummerMoodData;
 }
 
-export function IbizaMood({ data }: IbizaMoodProps) {
+export function SummerMood({ data }: SummerMoodProps) {
   return (
     <section
       id={data.sectionId}
@@ -25,6 +25,7 @@ export function IbizaMood({ data }: IbizaMoodProps) {
         <Sticker type="disco" size={72} animation="spin" className={styles.disco} />
         <Sticker type="vinyl" size={54} animation="spin" className={styles.vinyl} />
         <Sticker type="glasses" size={48} className={styles.glasses} />
+        <Sticker type="sun" size={52} animation="pulse" className={styles.sun} />
       </div>
 
       <SectionHeader
@@ -42,7 +43,7 @@ export function IbizaMood({ data }: IbizaMoodProps) {
         viewport={viewportOnce}
       >
         <motion.div className={styles.block} variants={fadeUp}>
-          <h3 className={styles.blockTitle}>Mood</h3>
+          <h3 className={styles.blockTitle}>El mood</h3>
           <ul className={styles.bullets}>
             {data.mood.map((item) => (
               <BulletItem key={item} icon="check" text={item} color="teal" />
