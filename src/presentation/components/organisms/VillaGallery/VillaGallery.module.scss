@@ -1,0 +1,48 @@
+@use 'theme' as *;
+
+.section {
+  position: relative;
+  padding: $space-12 $space-4;
+  background: rgba($color-aqua-soft, 0.35);
+  @include safe-area-padding;
+}
+
+.decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: $z-stickers;
+}
+
+.wave {
+  position: absolute;
+  top: $space-6;
+  right: $space-4;
+  opacity: 0.6;
+}
+
+.leaf {
+  position: absolute;
+  top: $space-4;
+  left: -10px;
+}
+
+.texts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  text-align: center;
+  margin-bottom: $space-8;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-6 $space-4;
+  justify-items: center;
+
+  @include respond($bp-lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

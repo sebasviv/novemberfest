@@ -1,0 +1,159 @@
+@use 'theme' as *;
+
+.section {
+  padding: $space-12 $space-4;
+  @include safe-area-padding;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  text-align: center;
+  margin-bottom: $space-6;
+}
+
+.intro {
+  max-width: 32rem;
+  font-size: 1.05em;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.category {
+  background: $color-white;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+}
+
+.categoryHeader {
+  @include tap-target;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-3;
+  padding: $space-3 $space-4;
+  text-align: left;
+  color: $color-navy;
+
+  &[aria-expanded='true'] {
+    background: $color-aqua-soft;
+  }
+}
+
+.categoryName {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  font-family: $font-hand;
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: $color-teal;
+}
+
+.categoryMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.chevron {
+  display: inline-block;
+  font-size: 1.1rem;
+}
+
+.panel {
+  overflow: hidden;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  padding: $space-2 $space-4 $space-4;
+}
+
+.itemRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    'product price'
+    'quantity price';
+  column-gap: $space-3;
+  padding: $space-2 0;
+  border-bottom: 1px dashed rgba($color-navy, 0.2);
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.product {
+  grid-area: product;
+  font-weight: 600;
+}
+
+.quantity {
+  grid-area: quantity;
+  font-family: $font-hand;
+  font-size: 1.1rem;
+  color: rgba($color-navy, 0.75);
+}
+
+.price {
+  grid-area: price;
+  align-self: center;
+  font-family: $font-hand;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: $color-teal;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.totals {
+  margin: $space-6 0 0;
+  background: $color-navy;
+  color: $color-white;
+  border-radius: $radius-lg;
+  padding: $space-4;
+  box-shadow: $shadow-paper;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  gap: $space-4;
+  font-weight: 600;
+
+  dd {
+    margin: 0;
+    font-family: $font-hand;
+    font-size: 1.3rem;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.grand {
+  color: $color-gold;
+  font-weight: 700;
+  border-top: 1px dashed rgba($color-white, 0.3);
+  padding-top: $space-2;
+}
+
+.closing {
+  margin-top: $space-6;
+  text-align: center;
+}

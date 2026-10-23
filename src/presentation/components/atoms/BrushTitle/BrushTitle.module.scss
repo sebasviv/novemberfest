@@ -1,0 +1,45 @@
+@use 'theme' as *;
+
+.wrap {
+  display: inline-block;
+  position: relative;
+}
+
+.brush {
+  font-family: $font-brush;
+  line-height: 1;
+  display: inline-block;
+}
+
+.xl {
+  font-size: $fs-brush-xl;
+}
+
+.lg {
+  font-size: $fs-brush-lg;
+}
+
+.teal {
+  color: $color-teal;
+}
+.navy {
+  color: $color-navy;
+}
+.coral {
+  color: $color-coral;
+}
+.gold {
+  color: $color-gold;
+}
+
+// Pincelada debajo del texto; hereda el color del título
+.underline {
+  position: absolute;
+  left: -4%;
+  right: -4%;
+  bottom: -0.18em;
+  width: 108%;
+  height: 0.28em;
+  stroke: currentColor;
+  opacity: 0.85;
+}

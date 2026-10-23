@@ -1,0 +1,19 @@
+@use 'sass:color';
+@use 'theme' as *;
+
+.card {
+  position: relative;
+  padding: $space-6 $space-4;
+  box-shadow: $shadow-paper;
+  @include torn-paper;
+}
+
+.white {
+  background: $color-white;
+}
+.aqua {
+  background: $color-aqua-soft;
+}
+.gold {
+  background: color.adjust($color-gold, $lightness: 18%);
+}

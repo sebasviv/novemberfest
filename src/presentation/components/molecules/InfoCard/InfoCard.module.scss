@@ -1,0 +1,47 @@
+@use 'theme' as *;
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-3;
+  background: $color-white;
+  border-radius: $radius-md;
+  padding: $space-4;
+  box-shadow: $shadow-card;
+}
+
+.iconWrap {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: $color-aqua-soft;
+  color: $color-teal;
+  flex-shrink: 0;
+}
+
+.texts {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.label {
+  font-family: $font-hand;
+  font-weight: 700;
+  font-size: $fs-hand-lg;
+  color: $color-teal;
+}
+
+.value {
+  font-weight: 600;
+  font-size: 1.05em;
+}
+
+.note {
+  font-family: $font-hand;
+  font-size: 1.05rem;
+  color: rgba($color-navy, 0.75);
+  margin-top: $space-1;
+}

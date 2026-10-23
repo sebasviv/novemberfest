@@ -1,0 +1,19 @@
+@use 'theme' as *;
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: $space-3;
+  flex-wrap: wrap;
+}
+
+.started {
+  font-family: $font-brush;
+  font-size: $fs-brush-lg;
+  color: $color-coral;
+  background: rgba($color-white, 0.9);
+  padding: $space-3 $space-6;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  transform: rotate(-1.5deg);
+}

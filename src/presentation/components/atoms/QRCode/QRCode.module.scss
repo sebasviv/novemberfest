@@ -1,0 +1,24 @@
+@use 'theme' as *;
+
+.qr {
+  margin: 0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+}
+
+.box {
+  background: $color-white;
+  padding: $space-2;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+  line-height: 0;
+}
+
+.label {
+  font-family: $font-hand;
+  font-weight: 700;
+  font-size: $fs-hand-lg;
+  color: $color-navy;
+}

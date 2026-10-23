@@ -1,0 +1,30 @@
+@use 'theme' as *;
+
+.unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-1;
+}
+
+.digit {
+  min-width: 64px;
+  padding: $space-2 $space-3;
+  border-radius: $radius-md;
+  background: rgba($color-white, 0.9);
+  box-shadow: $shadow-card;
+  font-family: $font-chrome;
+  font-weight: 900;
+  font-size: clamp(1.6rem, 7vw, 2.4rem);
+  color: $color-navy;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  perspective: 300px;
+}
+
+.label {
+  font-family: $font-hand;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: $color-navy;
+}

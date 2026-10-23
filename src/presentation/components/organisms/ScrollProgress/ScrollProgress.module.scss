@@ -1,0 +1,13 @@
+@use 'theme' as *;
+
+.bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: $z-progress;
+  background: linear-gradient(90deg, $color-teal, $color-gold, $color-coral);
+  transform-origin: 0 50%;
+  will-change: transform;
+}

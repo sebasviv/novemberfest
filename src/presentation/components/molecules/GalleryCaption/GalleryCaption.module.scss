@@ -1,0 +1,13 @@
+@use 'theme' as *;
+
+.caption {
+  display: inline-block;
+  font-family: $font-hand;
+  font-weight: 700;
+  font-size: $fs-hand-lg;
+  color: $color-navy;
+  background: rgba($color-white, 0.85);
+  padding: $space-1 $space-3;
+  border-radius: $radius-sm;
+  box-shadow: $shadow-card;
+}

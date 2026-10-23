@@ -1,0 +1,76 @@
+@use 'theme' as *;
+
+.section {
+  padding: $space-12 $space-4;
+  @include safe-area-padding;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.intro {
+  text-align: center;
+  max-width: 34rem;
+  margin: 0 auto $space-6;
+  font-size: 1.1em;
+}
+
+.tableCard {
+  background: $color-white;
+  border-radius: $radius-lg;
+  padding: $space-4;
+  box-shadow: $shadow-paper;
+}
+
+// La tabla semántica queda disponible para AT pero oculta visualmente;
+// la versión animada (divs) es la que se ve. Ambas muestran lo mismo.
+.table {
+  @extend .srOnly;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.subheading {
+  font-family: $font-hand;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: $color-teal;
+  margin-bottom: $space-3;
+}
+
+.considerations,
+.notes {
+  margin-top: $space-8;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.phrases {
+  margin-top: $space-8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  text-align: center;
+}
+
+// Totales destacados también en la tabla oculta (por si se muestra)
+.totalRow {
+  font-weight: 700;
+}

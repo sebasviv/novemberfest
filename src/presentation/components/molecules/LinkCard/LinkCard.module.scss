@@ -1,0 +1,22 @@
+@use 'theme' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-4;
+  background: $color-white;
+  border-radius: $radius-lg;
+  padding: $space-6 $space-4;
+  box-shadow: $shadow-polaroid;
+}
+
+.title {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  font-family: $font-hand;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: $color-navy;
+}

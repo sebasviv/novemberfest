@@ -1,0 +1,58 @@
+@use 'theme' as *;
+
+.section {
+  padding: $space-12 $space-4;
+  @include safe-area-padding;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-3;
+
+  @include respond($bp-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.airbnb {
+  margin-top: $space-8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-4;
+  text-align: center;
+}
+
+.airbnbHeader {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.airbnbTitle {
+  font-family: $font-hand;
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: $color-navy;
+}
+
+.airbnbLink {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  @include tap-target;
+  font-weight: 700;
+  color: $color-teal;
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+.phrases {
+  margin-top: $space-8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-3;
+  text-align: center;
+}

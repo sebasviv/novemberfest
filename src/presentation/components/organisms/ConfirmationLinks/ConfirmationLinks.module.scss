@@ -1,0 +1,81 @@
+@use 'theme' as *;
+
+.section {
+  position: relative;
+  padding: $space-12 $space-4;
+  background: rgba($color-aqua-soft, 0.35);
+  @include safe-area-padding;
+}
+
+.decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: $z-stickers;
+}
+
+.cheers {
+  position: absolute;
+  top: $space-6;
+  right: $space-4;
+  transform: rotate(8deg);
+}
+
+.spark {
+  position: absolute;
+  top: $space-12;
+  left: $space-6;
+}
+
+.phrases {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  text-align: center;
+  margin-bottom: $space-6;
+}
+
+.links {
+  margin-top: $space-8;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-6;
+
+  @include respond($bp-lg) {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 860px;
+    margin-inline: auto;
+  }
+}
+
+.confirmCta {
+  position: relative;
+  margin-top: $space-8;
+}
+
+// Confeti: pedacitos de papel que caen desde el botón
+.confetti {
+  position: absolute;
+  inset: 0 -10vw;
+  pointer-events: none;
+  overflow: hidden;
+  height: 60vh;
+
+  i {
+    position: absolute;
+    top: -12px;
+    width: 9px;
+    height: 15px;
+    border-radius: 2px;
+    animation: confetti-fall 2.6s ease-in forwards;
+  }
+}
+
+.polaroids {
+  margin-top: $space-12;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $space-8;
+}

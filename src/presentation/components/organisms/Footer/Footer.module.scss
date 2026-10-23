@@ -1,0 +1,35 @@
+@use 'theme' as *;
+
+.footer {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  padding: $space-16 $space-4 calc(#{$space-16} + 72px); // espacio para el StickyNav
+  @include safe-area-padding;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, $color-sand 0%, rgba($color-teal, 0.25) 30%, rgba($color-navy, 0.35) 100%);
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-6;
+  text-align: center;
+}
+
+.text {
+  max-width: 26rem;
+}
+
+.decor {
+  display: flex;
+  align-items: flex-end;
+  gap: $space-6;
+}

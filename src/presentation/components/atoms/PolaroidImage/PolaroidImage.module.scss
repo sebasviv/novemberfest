@@ -1,0 +1,41 @@
+@use 'theme' as *;
+
+.polaroid {
+  @include polaroid;
+  position: relative;
+  margin: 0;
+  display: inline-block;
+  will-change: transform;
+}
+
+.frame {
+  overflow: hidden;
+  border-radius: 2px;
+  background: $color-aqua-soft;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: $space-2;
+  text-align: center;
+  font-family: $font-hand;
+  font-weight: 700;
+  font-size: $fs-hand-lg;
+  color: $color-navy;
+}
+
+.tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  z-index: 1;
+}

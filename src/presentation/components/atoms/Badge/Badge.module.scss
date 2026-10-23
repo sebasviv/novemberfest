@@ -1,0 +1,29 @@
+@use 'theme' as *;
+
+.badge {
+  display: inline-block;
+  padding: $space-1 $space-3;
+  border-radius: $radius-sm;
+  font-family: $font-hand;
+  font-weight: 700;
+  font-size: $fs-hand-lg;
+  line-height: 1.2;
+  box-shadow: $shadow-card;
+}
+
+.gold {
+  background: $color-gold;
+  color: $color-navy;
+}
+.aqua {
+  background: $color-aqua-soft;
+  color: $color-navy;
+}
+.coral {
+  background: $color-coral;
+  color: $color-white;
+}
+.white {
+  background: rgba($color-white, 0.92);
+  color: $color-navy;
+}

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8CC8EE"/>
+      <stop offset="1" stop-color="#F4EBD9"/>
+    </linearGradient>
+    <linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F5F7FA"/>
+      <stop offset=".45" stop-color="#B8BEC7"/>
+      <stop offset=".55" stop-color="#6E7681"/>
+      <stop offset="1" stop-color="#F5F7FA"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#sky)"/>
+  <circle cx="980" cy="140" r="90" fill="#F2B544"/>
+  <path d="M0 470c150-40 260-40 420 0s280 40 430 0 240-40 350-10v170H0z" fill="#CFE6EE"/>
+  <text x="600" y="300" text-anchor="middle" font-family="Georgia, serif" font-weight="900" font-size="110" fill="url(#chrome)">NOVEMBER</text>
+  <text x="600" y="400" text-anchor="middle" font-family="'Comic Sans MS', cursive" font-size="90" fill="#1B6E8A">FEST</text>
+  <text x="600" y="480" text-anchor="middle" font-family="cursive" font-size="48" fill="#14305E">Cumple de Sebas · 20-22 NOV 2026 · La Mesa</text>
+</svg>

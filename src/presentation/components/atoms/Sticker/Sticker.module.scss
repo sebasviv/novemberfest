@@ -1,0 +1,38 @@
+@use 'theme' as *;
+
+.sticker {
+  display: inline-block;
+  flex-shrink: 0;
+  will-change: transform;
+}
+
+// Loops decorativos (usan los @keyframes globales de animations.scss).
+// Se desactivan con prefers-reduced-motion gracias al reset global.
+.anim-sway {
+  animation: sway 4.5s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.anim-pulse {
+  animation: pulse-soft 3.2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.anim-spin {
+  animation: spin-slow 12s linear infinite;
+  transform-origin: center;
+}
+
+.anim-twinkle {
+  animation: twinkle 2.4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.anim-float {
+  animation: float-y 5s ease-in-out infinite;
+}
+
+.anim-bounce {
+  animation: crown-bounce 0.9s $ease-spring both;
+  transform-origin: bottom center;
+}

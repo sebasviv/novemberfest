@@ -1,0 +1,30 @@
+@use 'theme' as *;
+
+.script {
+  font-family: $font-script;
+  line-height: 1.15;
+  display: inline-block;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.lg {
+  font-size: $fs-script-lg;
+}
+
+.md {
+  font-size: $fs-script-md;
+}
+
+.navy {
+  color: $color-navy;
+}
+.teal {
+  color: $color-teal;
+}
+.coral {
+  color: $color-coral;
+}
+.white {
+  color: $color-white;
+  text-shadow: 0 2px 8px rgba(20, 48, 94, 0.45);
+}

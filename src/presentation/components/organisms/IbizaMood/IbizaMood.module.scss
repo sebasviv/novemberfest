@@ -1,0 +1,81 @@
+@use 'sass:color';
+@use 'theme' as *;
+
+.section {
+  position: relative;
+  padding: $space-12 $space-4;
+  background: linear-gradient(180deg, $color-navy 0%, color.adjust($color-navy, $lightness: -4%) 100%);
+  color: $color-white;
+  @include safe-area-padding;
+
+  // Los títulos script dentro de la sección oscura quedan claros
+  :global(.section-script) {
+    color: $color-aqua-soft;
+  }
+}
+
+.decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: $z-stickers;
+}
+
+.disco {
+  position: absolute;
+  top: $space-6;
+  left: $space-4;
+}
+
+.vinyl {
+  position: absolute;
+  bottom: $space-8;
+  right: $space-4;
+  opacity: 0.9;
+}
+
+.glasses {
+  position: absolute;
+  top: 34%;
+  right: $space-6;
+  opacity: 0.85;
+}
+
+.columns {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+}
+
+.block {
+  background: rgba($color-white, 0.08);
+  border-radius: $radius-lg;
+  padding: $space-6 $space-4;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.blockTitle {
+  font-family: $font-hand;
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: $color-gold;
+  margin-bottom: $space-3;
+}
+
+.bullets {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+}
+
+.closing {
+  margin-top: $space-8;
+  text-align: center;
+}

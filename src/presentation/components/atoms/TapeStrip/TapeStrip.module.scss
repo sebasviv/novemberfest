@@ -1,0 +1,23 @@
+@use 'theme' as *;
+
+.tape {
+  display: inline-block;
+  height: 26px;
+  opacity: 0.75;
+  box-shadow: 0 1px 3px rgba(20, 48, 94, 0.18);
+  // Bordes rasgados de la cinta
+  clip-path: polygon(2% 0, 98% 4%, 100% 92%, 1% 100%);
+}
+
+.aqua {
+  background: rgba($color-aqua-soft, 0.85);
+}
+.gold {
+  background: rgba($color-gold, 0.8);
+}
+.coral {
+  background: rgba($color-coral, 0.75);
+}
+.silver {
+  background: rgba($color-silver-2, 0.7);
+}

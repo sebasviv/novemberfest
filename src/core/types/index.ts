@@ -1,0 +1,45 @@
+// Tipos compartidos entre capas (keys de iconos y stickers).
+// Los componentes mapean estas keys a iconos MUI o SVG de assets.
+
+export type IconKey =
+  | 'calendar'
+  | 'location'
+  | 'clock'
+  | 'groups'
+  | 'personAdd'
+  | 'pets'
+  | 'car'
+  | 'hotel'
+  | 'pool'
+  | 'restaurant'
+  | 'coffee'
+  | 'dinner'
+  | 'grill'
+  | 'nightlife'
+  | 'music'
+  | 'headphones'
+  | 'cocktail'
+  | 'beer'
+  | 'whatsapp'
+  | 'link'
+  | 'home'
+  | 'cart'
+  | 'receipt'
+  | 'paid'
+  | 'check'
+  | 'info'
+  | 'party';
+
+export type StickerKey =
+  | 'crown'
+  | 'star'
+  | 'sparkle'
+  | 'sun'
+  | 'palm'
+  | 'palmLeaf'
+  | 'disco'
+  | 'arrow'
+  | 'wave'
+  | 'vinyl'
+  | 'glasses'
+  | 'cheers';

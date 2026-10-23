@@ -1,0 +1,6 @@
+@use 'theme' as *;
+
+.page {
+  position: relative;
+  overflow-x: clip; // sin scroll horizontal accidental
+}

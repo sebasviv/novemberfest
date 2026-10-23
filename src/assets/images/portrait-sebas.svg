@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="760" viewBox="0 0 640 760">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#CFE6EE"/><stop offset="1" stop-color="#F4EBD9"/>
+  </linearGradient></defs>
+  <rect width="640" height="760" fill="url(#g)"/>
+  <circle cx="320" cy="300" r="110" fill="#E6D6B8"/>
+  <path d="M320 430 q-150 0 -170 240 h340 q-20 -240 -170 -240Z" fill="#E6D6B8"/>
+  <text x="320" y="720" text-anchor="middle" font-family="cursive" font-size="40" fill="#14305E">Foto de Sebas</text>
+</svg>

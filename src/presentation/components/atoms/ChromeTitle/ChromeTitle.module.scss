@@ -1,0 +1,36 @@
+@use 'theme' as *;
+
+.chrome {
+  @include chrome-text;
+  font-family: $font-chrome;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.xl {
+  font-size: $fs-chrome-xl;
+}
+
+.lg {
+  font-size: $fs-chrome-lg;
+}
+
+// Brillo que cruza el texto: segundo gradiente claro que se desplaza
+.shine {
+  background-image:
+    linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.95) 48%, transparent 62%),
+    linear-gradient(
+      180deg,
+      $color-silver-1 0%,
+      $color-silver-2 38%,
+      $color-silver-3 52%,
+      $color-silver-2 66%,
+      $color-silver-1 100%
+    );
+  background-size:
+    200% 100%,
+    100% 100%;
+  animation: chrome-shine 4.5s ease-in-out infinite;
+}

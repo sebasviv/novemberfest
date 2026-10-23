@@ -1,0 +1,91 @@
+@use 'theme' as *;
+
+.section {
+  padding: $space-12 0;
+  @include safe-area-padding;
+}
+
+.tabsBar {
+  position: sticky;
+  top: 0;
+  z-index: $z-nav - 1;
+  display: flex;
+  justify-content: center;
+  gap: $space-2;
+  padding: $space-2 $space-4;
+  background: rgba($color-sand, 0.92);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  overflow-x: auto;
+}
+
+.tab {
+  @include tap-target;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  padding: $space-2 $space-4;
+  border-radius: $radius-pill;
+  font-family: $font-hand;
+  font-weight: 700;
+  font-size: $fs-hand-lg;
+  color: $color-navy;
+  background: rgba($color-white, 0.7);
+  box-shadow: $shadow-card;
+  white-space: nowrap;
+  opacity: 0.75;
+  transition: opacity $dur-fast $ease-out, transform $dur-fast $ease-out;
+
+  &.active {
+    opacity: 1;
+    transform: scale(1.05);
+    color: $color-white;
+
+    &.gold {
+      background: $color-gold;
+      color: $color-navy;
+    }
+    &.teal {
+      background: $color-teal;
+    }
+    &.coral {
+      background: $color-coral;
+    }
+  }
+}
+
+.panelWrap {
+  padding: $space-6 $space-4 $space-2;
+  overflow: hidden; // contiene el drag horizontal
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  border-radius: $radius-lg;
+  padding: $space-4;
+  touch-action: pan-y; // permite scroll vertical mientras se arrastra en x
+
+  &.gold {
+    background: rgba($color-gold, 0.16);
+    box-shadow: inset 0 0 0 2px rgba($color-gold, 0.45);
+  }
+  &.teal {
+    background: rgba($color-teal, 0.1);
+    box-shadow: inset 0 0 0 2px rgba($color-teal, 0.4);
+  }
+  &.coral {
+    background: rgba($color-coral, 0.12);
+    box-shadow: inset 0 0 0 2px rgba($color-coral, 0.4);
+  }
+}
+
+.phrases {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-4;
+  text-align: center;
+}

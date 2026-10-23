@@ -1,0 +1,111 @@
+// ============================================================
+// animations.scss — @keyframes reutilizables (globales).
+// Se emiten UNA sola vez desde global.scss. Los módulos SCSS
+// referencian estos nombres directamente (animation: sway ...).
+// Todas animan solo transform/opacity para rendimiento móvil.
+// ============================================================
+
+// Brillo que cruza los títulos cromados (mueve background-position)
+@keyframes chrome-shine {
+  0% {
+    background-position: -200% center;
+  }
+  55%,
+  100% {
+    background-position: 200% center;
+  }
+}
+
+// Balanceo suave de palmeras / hojas (±3deg)
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+// Latido del sol y sus rayos
+@keyframes pulse-soft {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.85;
+  }
+}
+
+// Estrellitas que titilan en desfase
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+// Giro lento de la disco ball
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Flotación vertical suave (retrato, stickers)
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+// Rebote de entrada de la corona
+@keyframes crown-bounce {
+  0% {
+    transform: translateY(-14px) rotate(-8deg) scale(0.6);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(3px) rotate(3deg) scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotate(-3deg) scale(1);
+    opacity: 1;
+  }
+}
+
+// Barras del ecualizador de música
+@keyframes eq-bounce {
+  0%,
+  100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+// Confeti CSS al confirmar asistencia
+@keyframes confetti-fall {
+  0% {
+    transform: translate3d(0, -10%, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(var(--confetti-x, 0), 110%, 0) rotate(var(--confetti-r, 540deg));
+    opacity: 0;
+  }
+}

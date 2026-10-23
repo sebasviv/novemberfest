@@ -1,0 +1,19 @@
+@use 'theme' as *;
+
+.wrap {
+  display: inline-block;
+  will-change: transform;
+
+  img {
+    width: 100%;
+    height: auto;
+    // Borde blanco tipo sticker + sombra
+    border: 6px solid $color-white;
+    border-radius: 22% 24% 20% 26% / 26% 22% 26% 20%;
+    box-shadow: $shadow-polaroid;
+  }
+}
+
+.float {
+  animation: float-y 5s ease-in-out infinite;
+}

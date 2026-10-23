@@ -1,0 +1,21 @@
+@use 'theme' as *;
+
+.divider {
+  height: 34px;
+  width: 100%;
+  @include torn-paper;
+}
+
+.flip {
+  transform: scaleY(-1);
+}
+
+.sand {
+  background: $color-sand-dark;
+}
+.white {
+  background: $color-white;
+}
+.teal {
+  background: $color-teal;
+}

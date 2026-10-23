@@ -1,0 +1,39 @@
+@use 'theme' as *;
+
+.block {
+  background: rgba($color-white, 0.72);
+  border-radius: $radius-md;
+  padding: $space-4;
+  box-shadow: $shadow-card;
+}
+
+.title {
+  font-family: $font-hand;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: $color-navy;
+  margin-bottom: $space-2;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+}
+
+.item {
+  position: relative;
+  padding-left: $space-4;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 0.62em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.65;
+  }
+}

@@ -1,0 +1,70 @@
+@use 'theme' as *;
+
+.nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $z-nav;
+  padding: $space-2 $space-3 calc(#{$space-2} + env(safe-area-inset-bottom));
+  background: rgba($color-white, 0.92);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 -4px 18px rgba(20, 48, 94, 0.14);
+
+  @include respond($bp-lg) {
+    left: 50%;
+    right: auto;
+    bottom: $space-4;
+    transform: translateX(-50%);
+    border-radius: $radius-pill;
+    padding: $space-2 $space-3;
+    box-shadow: $shadow-polaroid;
+  }
+}
+
+.list {
+  display: flex;
+  justify-content: space-around;
+  gap: $space-1;
+
+  @include respond($bp-lg) {
+    gap: $space-2;
+  }
+}
+
+.link {
+  @include tap-target;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: $space-1 $space-2;
+  border-radius: $radius-md;
+  color: rgba($color-navy, 0.6);
+  font-family: $font-hand;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1;
+
+  @include respond($bp-lg) {
+    flex-direction: row;
+    gap: $space-1;
+    padding: $space-2 $space-3;
+    font-size: 1.1rem;
+  }
+
+  &.active {
+    color: $color-teal;
+  }
+}
+
+// Píldora animada detrás del ítem activo (layoutId = transición)
+.pill {
+  position: absolute;
+  inset: 0;
+  background: $color-aqua-soft;
+  border-radius: $radius-md;
+  z-index: -1;
+}

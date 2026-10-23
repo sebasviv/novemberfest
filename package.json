@@ -1,0 +1,48 @@
+{
+  "name": "november-fest-invitation",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Invitación digital November Fest 2026 - Cumple de Sebas",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit -p tsconfig.json && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^5.16.7",
+    "@mui/material": "^5.16.7",
+    "framer-motion": "^11.11.9",
+    "qrcode.react": "^3.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.10",
+    "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "@vitejs/plugin-react": "^4.3.2",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.11",
+    "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
+    "sass": "^1.79.3",
+    "typescript": "~5.5.4",
+    "vite": "^5.4.8",
+    "vitest": "^2.1.1"
+  },
+  "browserslist": [
+    "iOS >= 14",
+    "Safari >= 14",
+    "ChromeAndroid >= 100",
+    "last 2 Chrome versions",
+    "not dead"
+  ]
+}

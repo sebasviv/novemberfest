@@ -1,0 +1,151 @@
+@use 'theme' as *;
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: env(safe-area-inset-top);
+}
+
+.bg {
+  position: absolute;
+  inset: -14% 0;
+  background: url('../../../../assets/images/hero-sky.svg') center / cover no-repeat,
+    linear-gradient(180deg, $color-sky, $color-sand);
+  will-change: transform;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba($color-sand, 0.1) 0%,
+    rgba($color-sand, 0.55) 55%,
+    $color-sand 96%
+  );
+}
+
+.decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: $z-stickers;
+}
+
+.palmLeft {
+  position: absolute;
+  top: 4%;
+  left: -14px;
+}
+
+.palmRight {
+  position: absolute;
+  top: 4%;
+  right: -14px;
+  transform: scaleX(-1);
+}
+
+.sun {
+  position: absolute;
+  top: 12%;
+  right: 12%;
+}
+
+.disco {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}
+
+.spark1 {
+  position: absolute;
+  top: 26%;
+  left: 8%;
+}
+.spark2 {
+  position: absolute;
+  top: 20%;
+  right: 22%;
+}
+.spark3 {
+  position: absolute;
+  bottom: 30%;
+  left: 16%;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-4;
+  padding: $space-12 $space-4 $space-8;
+  text-align: center;
+  @include safe-area-padding;
+}
+
+.portraitWrap {
+  margin-bottom: -$space-4;
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-1;
+}
+
+.scriptRow {
+  position: relative;
+  margin-top: $space-2;
+}
+
+.crown {
+  position: absolute;
+  top: -30px;
+  left: -14px;
+}
+
+.dates {
+  font-family: $font-hand;
+  font-weight: 700;
+  font-size: clamp(1.4rem, 6vw, 2rem);
+  color: $color-white;
+  background: $color-teal;
+  padding: $space-2 $space-6;
+  border-radius: $radius-sm;
+  box-shadow: $shadow-card;
+  transform: rotate(-1.5deg);
+  letter-spacing: 0.08em;
+}
+
+.location {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  font-weight: 700;
+  font-size: 1.15em;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $space-2;
+}
+
+.floating {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+}
+
+.floatText {
+  opacity: 0.9;
+}

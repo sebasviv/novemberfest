@@ -1,0 +1,8 @@
+@use 'theme' as *;
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  counter-reset: obs;
+}

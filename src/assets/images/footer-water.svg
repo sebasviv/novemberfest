@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420">
+  <rect width="900" height="420" fill="#1B6E8A"/>
+  <path d="M0 180 Q60 120 120 180 T240 180 T360 180 T480 180 T600 180 T720 180 T840 180 T960 180 V420 H0 Z" fill="#2E8CAD" opacity="0.7"/>
+  <path d="M0 240 Q60 180 120 240 T240 240 T360 240 T480 240 T600 240 T720 240 T840 240 T960 240 V420 H0 Z" fill="#8CC8EE" opacity="0.55"/>
+  <path d="M0 300 Q60 250 120 300 T240 300 T360 300 T480 300 T600 300 T720 300 T840 300 T960 300 V420 H0 Z" fill="#CFE6EE" opacity="0.6"/>
+</svg>

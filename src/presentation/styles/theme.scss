@@ -1,0 +1,164 @@
+// ============================================================
+// theme.scss — Tokens de diseño "November Fest"
+// Edita aquí colores, tipografía, sombras y mixins para
+// re-tematizar toda la invitación desde un solo lugar.
+//
+// NOTA: este archivo solo contiene variables y mixins (sin CSS
+// de salida) para que los *.module.scss puedan hacer
+// `@use "theme" as *;` sin duplicar estilos. El reset y los
+// estilos base viven en global.scss (se importa una sola vez).
+// ============================================================
+
+// ---------- Paleta ----------
+$color-sand: #f4ebd9; // Fondo papel arena
+$color-sand-dark: #e6d6b8; // Bordes rasgados, sombras de papel
+$color-navy: #14305e; // Texto principal, script
+$color-teal: #1b6e8a; // Pinceladas, cabeceras, títulos brush
+$color-aqua-soft: #cfe6ee; // Fondos de etiquetas, filas destacadas
+$color-gold: #f2b544; // Resaltes de precio, "Viernes", totales
+$color-coral: #e8553e; // "Domingo", acentos puntuales
+$color-silver-1: #f5f7fa; // Gradiente cromado (alto)
+$color-silver-2: #b8bec7; // Gradiente cromado (medio)
+$color-silver-3: #6e7681; // Gradiente cromado (bajo)
+$color-sky: #8cc8ee; // Cielo del hero
+$color-white: #ffffff;
+$color-whatsapp: #25d366;
+
+// ---------- Espaciado (escala 4/8/12/16/24/32/48/64) ----------
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-6: 24px;
+$space-8: 32px;
+$space-12: 48px;
+$space-16: 64px;
+
+// ---------- Radios ----------
+$radius-sm: 8px;
+$radius-md: 14px;
+$radius-lg: 22px;
+$radius-pill: 999px;
+
+// ---------- Sombras ----------
+$shadow-paper:
+  0 2px 6px rgba(20, 48, 94, 0.12),
+  0 12px 28px rgba(20, 48, 94, 0.1);
+$shadow-polaroid:
+  0 3px 8px rgba(20, 48, 94, 0.18),
+  0 14px 30px rgba(20, 48, 94, 0.16);
+$shadow-card:
+  0 2px 5px rgba(20, 48, 94, 0.1),
+  0 10px 22px rgba(20, 48, 94, 0.08);
+
+// ---------- z-index ----------
+$z-stickers: 5;
+$z-nav: 50;
+$z-progress: 60;
+
+// ---------- Breakpoints ----------
+$bp-sm: 360px;
+$bp-md: 480px;
+$bp-lg: 768px;
+
+// ---------- Motion ----------
+$dur-fast: 0.2s;
+$dur-med: 0.45s;
+$dur-slow: 0.9s;
+$ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+$ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+// ---------- Tipografía ----------
+$font-chrome: 'Playfair Display', 'Georgia', serif;
+$font-brush: 'Caveat Brush', 'Comic Sans MS', cursive;
+$font-script: 'Yellowtail', 'Snell Roundhand', cursive;
+$font-hand: 'Caveat', 'Segoe Script', cursive;
+$font-body: 'Cormorant Garamond', 'Georgia', serif;
+
+// Escala tipográfica fluida
+$fs-chrome-xl: clamp(2.6rem, 11vw, 5rem);
+$fs-chrome-lg: clamp(1.9rem, 7.5vw, 3.2rem);
+$fs-brush-xl: clamp(2.4rem, 10vw, 4.2rem);
+$fs-brush-lg: clamp(1.8rem, 7vw, 2.8rem);
+$fs-script-lg: clamp(1.7rem, 6.5vw, 2.6rem);
+$fs-script-md: clamp(1.3rem, 5vw, 1.8rem);
+$fs-hand-lg: clamp(1.25rem, 4.6vw, 1.6rem);
+$fs-body: clamp(1.06rem, 1rem + 0.4vw, 1.2rem); // base >= 17px
+$fs-small: 0.95rem;
+
+// ---------- Mixins ----------
+
+// Texto cromado plateado con relieve (usar con filter drop-shadow)
+@mixin chrome-text {
+  background: linear-gradient(
+    180deg,
+    $color-silver-1 0%,
+    $color-silver-2 38%,
+    $color-silver-3 52%,
+    $color-silver-2 66%,
+    $color-silver-1 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 2px 0 rgba(20, 48, 94, 0.28))
+    drop-shadow(0 8px 16px rgba(20, 48, 94, 0.18));
+}
+
+// Borde inferior rasgado (fallback: borde recto si no hay clip-path)
+@mixin torn-paper {
+  @supports (clip-path: polygon(0 0, 100% 0, 100% 100%)) {
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 12px),
+      97% 100%,
+      93% calc(100% - 9px),
+      89% 100%,
+      84% calc(100% - 11px),
+      79% calc(100% - 6px),
+      74% 100%,
+      68% calc(100% - 9px),
+      63% calc(100% - 5px),
+      57% 100%,
+      51% calc(100% - 10px),
+      46% calc(100% - 6px),
+      40% 100%,
+      34% calc(100% - 9px),
+      28% calc(100% - 5px),
+      22% 100%,
+      17% calc(100% - 10px),
+      11% calc(100% - 6px),
+      6% 100%,
+      0 calc(100% - 12px)
+    );
+  }
+}
+
+// Tarjeta polaroid: marco blanco, pie grueso y sombra de foto
+@mixin polaroid {
+  background: $color-white;
+  padding: $space-3 $space-3 $space-8;
+  border-radius: 4px;
+  box-shadow: $shadow-polaroid;
+}
+
+// Objetivo táctil mínimo 44x44 (Apple HIG / WCAG)
+@mixin tap-target {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+// Padding lateral que respeta las safe areas de iOS (notch / home bar)
+@mixin safe-area-padding($base: $space-4) {
+  padding-left: max(#{$base}, env(safe-area-inset-left));
+  padding-right: max(#{$base}, env(safe-area-inset-right));
+}
+
+// Media query mobile-first: @include respond($bp-md) { ... }
+@mixin respond($bp) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}
