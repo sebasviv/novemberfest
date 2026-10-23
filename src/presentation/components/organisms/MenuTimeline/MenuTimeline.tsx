@@ -50,24 +50,6 @@ export function MenuTimeline({ menu }: MenuTimelineProps) {
         tagline={menu.tagline}
       />
 
-      {/* Polaroids: carta del menú + foto real */}
-      {menu.gallery && menu.gallery.length > 0 && (
-        <ul className={styles.gallery}>
-          {menu.gallery.map((photo) => (
-            <li key={photo.caption}>
-              <PolaroidImage
-                src={photo.src}
-                alt={photo.alt}
-                caption={photo.caption}
-                rotation={photo.rotation}
-                width={540}
-                height={675}
-              />
-            </li>
-          ))}
-        </ul>
-      )}
-
       {/* Tabs sticky */}
       <div className={styles.tabsBar} role="tablist" aria-label="Días del fin de semana">
         {menu.days.map((day, index) => (
