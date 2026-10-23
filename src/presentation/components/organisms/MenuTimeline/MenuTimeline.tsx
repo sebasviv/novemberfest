@@ -6,7 +6,6 @@ import { AnimatePresence, motion, type PanInfo } from 'framer-motion';
 import type { MenuDay, MenuSection } from '@domain/entities';
 import { SectionHeader } from '@presentation/components/molecules/SectionHeader';
 import { MenuItemList } from '@presentation/components/molecules/MenuItemList';
-import { PolaroidImage } from '@presentation/components/atoms/PolaroidImage';
 import { ScriptText } from '@presentation/components/atoms/ScriptText';
 import { Icon } from '@presentation/components/atoms/Icon';
 import { useReducedMotion } from '@core/hooks/useReducedMotion';
