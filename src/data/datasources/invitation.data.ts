@@ -491,7 +491,7 @@ export const drinksSurvey: DrinksSurveySection = {
   headingAccent: 'TRAER?',
   tagline: 'Aporte personal de bebidas',
   ruleText:
-    'Aparte del valor final, cada persona debe traer 3 sixpack de cerveza o el licor de su preferencia.',
+    '',
   helpText: 'Elige qué vas a llevar para que tengamos listo el inventario de la fiesta:',
   options: [
     {

@@ -64,9 +64,7 @@ export function DrinksSurvey({
           <div className={styles.ruleBadge}>
             <Badge text="APORTE OBLIGATORIO DE BEBIDAS" color="gold" />
           </div>
-          <p className={styles.ruleText}>
-            “<mark>{survey.ruleText}</mark>”
-          </p>
+         
           <p className={styles.helpText}>{survey.helpText}</p>
         </motion.div>
 

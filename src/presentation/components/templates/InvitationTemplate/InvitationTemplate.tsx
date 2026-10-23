@@ -31,6 +31,7 @@ import { DrinksSurvey } from '@presentation/components/organisms/DrinksSurvey';
 import { ConfirmationLinks } from '@presentation/components/organisms/ConfirmationLinks';
 import { StickyNav } from '@presentation/components/organisms/StickyNav';
 import { ScrollProgress } from '@presentation/components/organisms/ScrollProgress';
+import { AudioPlayer } from '@presentation/components/organisms/AudioPlayer';
 import { Footer } from '@presentation/components/organisms/Footer';
 import { Divider } from '@presentation/components/atoms/Divider';
 import styles from './InvitationTemplate.module.scss';
@@ -91,6 +92,7 @@ export function InvitationTemplate({
   return (
     <div className={styles.page}>
       <ScrollProgress />
+      <AudioPlayer />
       <HeroInvitation event={event} confirmSectionId={closing.sectionId} />
       <main>
         <Divider color="sand" />

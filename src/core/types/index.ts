@@ -28,7 +28,9 @@ export type IconKey =
   | 'paid'
   | 'check'
   | 'info'
-  | 'party';
+  | 'party'
+  | 'volumeUp'
+  | 'volumeOff';
 
 export type StickerKey =
   | 'crown'

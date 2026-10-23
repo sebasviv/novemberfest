@@ -29,6 +29,8 @@ import PaidIcon from '@mui/icons-material/Paid';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import InfoIcon from '@mui/icons-material/Info';
 import CelebrationIcon from '@mui/icons-material/Celebration';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import type { ComponentType } from 'react';
 
 const ICONS: Record<IconKey, ComponentType<{ fontSize?: 'small' | 'inherit' | 'medium' | 'large' }>> = {
@@ -59,6 +61,8 @@ const ICONS: Record<IconKey, ComponentType<{ fontSize?: 'small' | 'inherit' | 'm
   check: CheckCircleIcon,
   info: InfoIcon,
   party: CelebrationIcon,
+  volumeUp: VolumeUpIcon,
+  volumeOff: VolumeOffIcon,
 };
 
 export interface IconProps {

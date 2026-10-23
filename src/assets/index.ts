@@ -24,8 +24,15 @@ import foodBreakfast from './images/food_breakfast.jpg';
 import foodLunchChicken from './images/food_lunch_chicken.jpg';
 import foodDinnerRice from './images/food_dinner_rice.jpg';
 import foodAsado from './images/food_asado.jpg';
+import audioTrack from './audio.mp3';
 
 export { AirbnbLogo } from './logos/AirbnbLogo';
+
+// ---------- Audio ----------
+export const audioAssets = {
+  main: audioTrack,
+};
+export { audioTrack };
 
 // ---------- Fondos ----------
 export const backgrounds = {
