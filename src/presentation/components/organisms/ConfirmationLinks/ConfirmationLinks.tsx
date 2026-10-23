@@ -104,6 +104,15 @@ export function ConfirmationLinks({
                   </p>
                 </div>
 
+                <div className={styles.calendarCta}>
+                  <p className={styles.calloutText}>
+                    Agrega a tu calendario mi cumpleaños oficial para que no se te olvide!
+                  </p>
+                  <Button href={BIRTHDAY_CALENDAR_URL} variant="outline" fullWidth>
+                    Agregar evento a mi calendario de google 🫶
+                  </Button>
+                </div>
+
                 {/* Confeti ligero con CSS (sin librerías); no se renderiza con reduced-motion */}
                 {!reduced && confettiBurst > 0 && (
                   <div key={confettiBurst} className={styles.confetti} aria-hidden="true">

@@ -54,6 +54,14 @@
   width: 100%;
 }
 
+.calendarCta {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  margin-top: $space-4;
+  text-align: center;
+}
+
 .finalCallout {
   background: $color-white;
   border: 2px solid $color-gold;
