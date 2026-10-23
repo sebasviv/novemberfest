@@ -1,0 +1,168 @@
+﻿@use 'theme' as *;
+
+.section {
+  padding: $space-12 $space-4;
+  @include safe-area-padding;
+}
+
+.content {
+  max-width: 860px;
+  margin-inline: auto;
+}
+
+.total {
+  max-width: 360px;
+  margin: 0 auto $space-8;
+  text-align: center;
+
+  p {
+    font-family: $font-hand;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  strong {
+    font-family: $font-brush;
+    font-size: clamp(2.8rem, 10vw, 4rem);
+    line-height: 1.2;
+  }
+}
+
+.subheading {
+  font-family: $font-script;
+  font-size: $fs-script-lg;
+  font-weight: 400;
+  color: $color-teal;
+  margin-bottom: $space-6;
+  text-align: center;
+}
+
+.schedule {
+  display: grid;
+  gap: $space-8;
+  margin: $space-8 0 $space-12;
+  list-style: none;
+  padding: 0;
+
+  @include respond($bp-lg) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: $space-4;
+  }
+}
+
+.installment {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  background: rgba($color-white, 0.8);
+  border: 1px solid rgba($color-sand-dark, 0.7);
+  border-radius: $radius-lg;
+  box-shadow: $shadow-paper;
+  padding: $space-8 $space-4 $space-6;
+  text-align: center;
+}
+
+.step {
+  position: absolute;
+  top: -20px;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: $color-teal;
+  color: $color-white;
+  border: 2px dashed $color-aqua-soft;
+  font-family: $font-brush;
+  font-size: 1.8rem;
+  transform: rotate(-6deg);
+}
+
+.date {
+  background: rgba($color-gold, 0.3);
+  padding: $space-1 $space-2;
+  border-radius: $radius-sm;
+  font-family: $font-hand;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.label {
+  font-family: $font-script;
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+
+.amount {
+  margin-top: auto;
+  background: $color-aqua-soft;
+  border-radius: $radius-sm;
+  padding: $space-1 $space-4;
+  font-family: $font-brush;
+  font-size: clamp(2rem, 7vw, 2.8rem);
+  transform: rotate(-2deg);
+}
+
+.channels {
+  display: grid;
+  gap: $space-4;
+  margin-bottom: $space-8;
+
+  @include respond($bp-lg) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.channel {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  background: rgba($color-white, 0.8);
+  padding: $space-6;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-paper;
+  min-width: 0;
+}
+
+.channelIcon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  background: $color-aqua-soft;
+  color: $color-teal;
+  border-radius: $radius-md;
+  transform: rotate(-5deg);
+}
+
+.channelName {
+  font-family: $font-script;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.account {
+  font-family: $font-hand;
+  font-size: clamp(1.4rem, 6vw, 1.8rem);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.bank {
+  font-style: italic;
+  color: $color-teal;
+}
+
+.notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-3;
+  font-family: $font-hand;
+  font-size: $fs-hand-lg;
+  font-weight: 700;
+  text-align: center;
+}

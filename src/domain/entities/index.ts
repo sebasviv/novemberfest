@@ -204,7 +204,7 @@ export interface Rule {
 }
 
 export interface ConfirmationLink {
-  id: 'whatsapp' | 'airbnb';
+  id: 'whatsapp' | 'airbnb' | 'decline';
   title: string;
   url: string;
   qrLabel: string;

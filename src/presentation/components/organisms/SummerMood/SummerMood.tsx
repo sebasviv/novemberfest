@@ -33,6 +33,7 @@ export function SummerMood({ data }: SummerMoodProps) {
         heading={data.heading}
         headingAccent={data.headingAccent}
         tagline={data.subtitle}
+        taglineColor="coral"
       />
 
       <motion.div

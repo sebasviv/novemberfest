@@ -87,3 +87,21 @@
   color: rgba(17, 27, 33, 0.55);
   margin-top: 2px;
 }
+
+.decline {
+  background: #fff1f2;
+  border: 1px solid #fda4af;
+
+  .title {
+    color: #b91c1c;
+  }
+
+  .declineButton {
+    background: #b91c1c;
+    color: $color-white;
+
+    &:hover {
+      background: #991b1b;
+    }
+  }
+}

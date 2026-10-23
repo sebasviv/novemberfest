@@ -9,6 +9,7 @@ export interface SectionHeaderProps {
   heading: string; // parte principal ("MENÚ", "CUENTAS CLARAS")
   headingAccent?: string; // parte brush/script ("del finde")
   tagline?: string; // línea manuscrita adicional
+  taglineColor?: 'navy' | 'teal' | 'coral' | 'white';
   align?: 'center' | 'left';
   className?: string;
 }
@@ -18,6 +19,7 @@ export function SectionHeader({
   heading,
   headingAccent,
   tagline,
+  taglineColor = 'teal',
   align = 'center',
   className = '',
 }: SectionHeaderProps) {
@@ -27,7 +29,7 @@ export function SectionHeader({
         <BrushTitle text={heading} as="h2" color="gold" withUnderline={false} />
         {headingAccent && <BrushTitle text={headingAccent} as="span" />}
       </div>
-      {tagline && <ScriptText text={tagline} size="md" color="teal" />}
+      {tagline && <ScriptText text={tagline} size="md" color={taglineColor} />}
     </div>
   );
 }

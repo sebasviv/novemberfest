@@ -51,12 +51,6 @@
 
 .confirmCta {
   position: relative;
-  margin-top: $space-8;
-  display: flex;
-  flex-direction: column;
-  gap: $space-4;
-  max-width: 520px;
-  margin-inline: auto;
   width: 100%;
 }
 
@@ -122,4 +116,95 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: $space-8;
+}
+
+// Modal de despedida con los mismos colores y tipografías de la invitación.
+.declinePaper.declinePaper {
+  background: $color-sand;
+  background-image: url('../../../../assets/images/paper-texture.svg');
+  background-size: 420px;
+  border: 1px solid $color-sand-dark;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-paper;
+  color: $color-navy;
+  margin: $space-4;
+  width: calc(100% - #{$space-8});
+}
+
+.declineTitle.declineTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-8 $space-6 $space-6;
+  text-align: center;
+  border-top: 6px solid $color-coral;
+}
+
+.declineSubtitle {
+  max-width: 360px;
+  text-wrap: balance;
+}
+
+.declineContent.declineContent {
+  padding: 0 $space-4 $space-4;
+
+  @include respond($bp-md) {
+    padding-inline: $space-8;
+  }
+}
+
+.declineMessage {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  font-family: $font-body;
+  font-size: $fs-body;
+  line-height: 1.6;
+  text-align: center;
+
+  strong {
+    color: $color-teal;
+    font-weight: 700;
+  }
+}
+
+.declineFarewell {
+  align-self: center;
+  margin-bottom: $space-2;
+}
+
+.birthdayNote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-4;
+  padding: $space-6 $space-4;
+  background: rgba($color-white, 0.8);
+  border: 1px solid rgba($color-gold, 0.6);
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+}
+
+.birthdayReminder {
+  text-wrap: balance;
+}
+
+.declineActions.declineActions {
+  flex-direction: column;
+  gap: $space-3;
+  padding: $space-2 $space-4 $space-6;
+
+  > :not(:first-of-type) {
+    margin-left: 0;
+  }
+
+  @include respond($bp-md) {
+    padding-inline: $space-8;
+  }
+}
+
+.officialBirthday {
+  margin-top: $space-8;
+  text-align: center;
 }

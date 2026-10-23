@@ -42,7 +42,7 @@ export const event: Event = {
   // 20/11/2026 12:00 hora Colombia (UTC-5, America/Bogota)
   targetDateIso: '2026-11-20T12:00:00-05:00',
   location: 'La Mesa, Cundinamarca',
-  tags: ['Sol y piscina', 'Afrohouse', 'Verano', 'Finde con amigos'],
+  tags: ['Sol y piscina', 'Fiesta', 'Verano', 'Finde con amigos'],
   floatingTexts: ['Sol Piscina Buena Música', 'Un finde para desconectar'],
   ctaLabel: 'Confirmar asistencia',
   startedLabel: '¡Ya empezó!',

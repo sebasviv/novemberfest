@@ -116,13 +116,17 @@ describe('buildAttendanceMessage', () => {
 });
 
 describe('buildWhatsAppUrl', () => {
-  it('convierte enlaces de grupo en api.whatsapp.com/send cuando hay mensaje', () => {
+  it('conserva el destino del grupo aunque haya un mensaje personalizado', () => {
     const groupUrl = 'https://chat.whatsapp.com/Bzi5DFgDZgHIGJ2Q1lgnal';
     const msg = 'Soy ana y voy a llevar 3 six pack de cerveza';
     const result = buildWhatsAppUrl(groupUrl, msg);
-    expect(result).toBe(
-      `https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`
-    );
+    expect(result).toBe(groupUrl);
+  });
+
+  it('conserva el enlace del grupo sin mensaje y con parámetros de invitación', () => {
+    const groupUrl = 'https://chat.whatsapp.com/Bzi5DFgDZgHIGJ2Q1lgnal?mode=gi_t';
+    expect(buildWhatsAppUrl(groupUrl)).toBe(groupUrl);
+    expect(buildWhatsAppUrl(groupUrl, 'Confirmo mi asistencia')).toBe(groupUrl);
   });
 
   it('agrega el texto correctamente a urls directas', () => {

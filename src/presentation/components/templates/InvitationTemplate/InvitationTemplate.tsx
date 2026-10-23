@@ -28,6 +28,7 @@ import { MenuTimeline } from '@presentation/components/organisms/MenuTimeline';
 import { CostTable } from '@presentation/components/organisms/CostTable';
 import { MarketAccordion } from '@presentation/components/organisms/MarketAccordion';
 import { DrinksSurvey } from '@presentation/components/organisms/DrinksSurvey';
+import { PaymentPlan } from '@presentation/components/organisms/PaymentPlan';
 import { ConfirmationLinks } from '@presentation/components/organisms/ConfirmationLinks';
 import { StickyNav } from '@presentation/components/organisms/StickyNav';
 import { ScrollProgress } from '@presentation/components/organisms/ScrollProgress';
@@ -124,6 +125,8 @@ export function InvitationTemplate({
           onChangeCustomDetail={setCustomDrinkDetail}
         />
         <Divider color="white" />
+        <PaymentPlan />
+        <Divider color="sand" flip />
         <ConfirmationLinks
           closing={closing}
           finalPrice={costs.perPerson}

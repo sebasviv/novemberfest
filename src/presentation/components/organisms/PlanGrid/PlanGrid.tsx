@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import type { Plan } from '@domain/entities';
 import { AirbnbLogo } from '@assets/index';
 import { SectionHeader } from '@presentation/components/molecules/SectionHeader';
-import { InfoCard } from '@presentation/components/molecules/InfoCard';
 import { TornPaperCard } from '@presentation/components/molecules/TornPaperCard';
 import { QRCode } from '@presentation/components/atoms/QRCode';
 import { ScriptText } from '@presentation/components/atoms/ScriptText';
@@ -17,6 +16,11 @@ export interface PlanGridProps {
 }
 
 export function PlanGrid({ plan }: PlanGridProps) {
+
+  const body = 'Un fin de semana para olvidarnos de la rutina, disfrutar de buena música, mucha fiesta, risas interminables y momentos inolvidables con el mejor parche. 😎 ';
+  const body2 = 'La idea es simple: reunirnos, celebrar a lo grande, bailar hasta que el cuerpo aguante y crear esas anécdotas que seguiremos contando durante años. 😁'
+  const body3 = '¡Prepara tu mejor actitud, que este fin de semana promete! 🙌';
+
   return (
     <section id={plan.sectionId} aria-labelledby={`${plan.sectionId}-title`} className={styles.section}>
       <SectionHeader
@@ -25,19 +29,30 @@ export function PlanGrid({ plan }: PlanGridProps) {
         headingAccent={plan.headingAccent}
       />
 
-      <motion.ul
-        className={styles.grid}
+      <motion.div
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
       >
-        {plan.items.map((item) => (
-          <li key={item.label}>
-            <InfoCard item={item} />
-          </li>
-        ))}
-      </motion.ul>
+        <div style={{ paddingTop: '1.5rem', paddingBottom: '1.5rem', paddingLeft: '2rem', paddingRight: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem', textAlign: 'center' }}>
+          <ScriptText
+            text={body}
+            color="navy"
+            rotate={0}
+          />
+          <ScriptText
+            text={body2}
+            color="coral"
+            rotate={0}
+          />
+          <ScriptText
+            text={body3}
+            color="teal"
+            rotate={0}
+          />
+        </div>
+      </motion.div>
 
       <TornPaperCard color="aqua" rotate={-1} className={styles.airbnb}>
         <div className={styles.airbnbHeader}>
